@@ -15,17 +15,15 @@ namespace WinFormEmailWriter
 
     private void Form1_Load(object sender, EventArgs e)
     {
-      //this.PreviewWebBrowser.Navigate(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\검토의견.htm");
     }
 
     private void BtnAddFile_Click(object sender, EventArgs e)
     {
-      string html = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\검토의견.htm");
-      //PreviewWebBrowser.DocumentText = html;  //출력 시 인코딩문제 : https://doitforyou.tistory.com/37
-      Stream docStream = PreviewWebBrowser.DocumentStream;
-      StreamWriter docStreamWriter = new StreamWriter(docStream, System.Text.Encoding.GetEncoding(PreviewWebBrowser.Document.Encoding));
-      docStream.Position = 0;
-      docStreamWriter.WriteLine(html);
+      string html = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\asd.htm");
+      FileInfo tmpFile = HtmlParser.StringToHtmlFile(html);
+      PreviewWebBrowser.Navigate(tmpFile.FullName);
+      //PreviewWebBrowser.DocumentText = html;
+      //PreviewWebBrowser.Document.Encoding = Encoding.GetEncoding("euc-kr").ToString(); //GetEncoding("ks_c_5601-1987").ToString();
     }
   }
 }

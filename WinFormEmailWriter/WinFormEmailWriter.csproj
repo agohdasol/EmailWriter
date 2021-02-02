@@ -10,4 +10,10 @@
     <ProjectReference Include="..\PdfHandler\FileHandler.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ModelEditControl">
+      <HintPath>ModelEditControl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
