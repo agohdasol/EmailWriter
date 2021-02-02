@@ -1,0 +1,9 @@
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.deps.json
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.dll
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.pdb
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.csprojAssemblyReference.cache
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.AssemblyInfoInputs.cache
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.AssemblyInfo.cs
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.csproj.CoreCompileInputs.cache
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.dll
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.pdb
