@@ -1,0 +1,9 @@
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\FileHandler.deps.json
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\FileHandler.dll
+C:\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\FileHandler.pdb
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.AssemblyInfoInputs.cache
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.AssemblyInfo.cs
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.csproj.CoreCompileInputs.cache
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.dll
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.pdb
+C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\FileHandler.csprojAssemblyReference.cache

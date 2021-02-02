@@ -1,0 +1,7 @@
+C:\EmailWriter\Tester\bin\Debug\Tester.exe.config
+C:\EmailWriter\Tester\bin\Debug\Tester.exe
+C:\EmailWriter\Tester\bin\Debug\Tester.pdb
+C:\EmailWriter\Tester\obj\Debug\Tester.csprojAssemblyReference.cache
+C:\EmailWriter\Tester\obj\Debug\Tester.csproj.CoreCompileInputs.cache
+C:\EmailWriter\Tester\obj\Debug\Tester.exe
+C:\EmailWriter\Tester\obj\Debug\Tester.pdb
