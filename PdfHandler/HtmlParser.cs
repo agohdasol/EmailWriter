@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace FileHandler
+namespace Parser
 {
   public class HtmlParser
   {
@@ -11,24 +11,22 @@ namespace FileHandler
       string lines;
       if (File.Exists(fileName))
       {
-        //try
-        //{
-
-        //}
-        //catch (Exception)
-        //{
-        //  lines = "";
-        //}
-        var endcoingCode = 51949;//euc-kr이면 51949
-        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-        Encoding ks_c_5601 = Encoding.GetEncoding(endcoingCode);
-        Stream htmlStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-        using (StreamReader docStreamReader = new StreamReader(htmlStream, System.Text.Encoding.GetEncoding(51949), true))
+        try
         {
-          htmlStream.Position = 0;
-
-          lines = docStreamReader.ReadToEnd();
+          var endcoingCode = 51949; //euc-kr이면 51949
+          Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+          Stream htmlStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+          using (StreamReader docStreamReader = new StreamReader(htmlStream, System.Text.Encoding.GetEncoding(endcoingCode), true))
+          {
+            htmlStream.Position = 0;
+            lines = docStreamReader.ReadToEnd();
+          }
         }
+        catch (Exception)
+        {
+          lines = "";
+        }
+
       }
       else
       {
@@ -38,7 +36,6 @@ namespace FileHandler
     }
     public static FileInfo StringToHtmlFile(string strHtml)
     {
-      //string tmpPath = Path.GetTempPath() + Guid.NewGuid().ToString() + ".htm";
       string tmpPath = @"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\EmailWriterTmp" + Guid.NewGuid().ToString() + ".htm";
 
       File.WriteAllText(tmpPath, strHtml);

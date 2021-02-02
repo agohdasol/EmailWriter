@@ -1,8 +1,7 @@
-﻿using FileHandler;
+﻿using Parser;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Text;
-using System.IO;
 
 namespace WinFormEmailWriter
 {
@@ -19,11 +18,14 @@ namespace WinFormEmailWriter
 
     private void BtnAddFile_Click(object sender, EventArgs e)
     {
-      string html = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\asd.htm");
-      //FileInfo tmpFile = HtmlParser.StringToHtmlFile(html);
-      //PreviewWebBrowser.Navigate(tmpFile.FullName);
+      string html = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\OA접수보고.htm");
+      var dict = new Dictionary<string, string>()
+      {
+        { "##출원번호##", "10-2020-0001121" },
+        { "##출원인##", "주식회사 테스트" },
+      };
+      html = AutoFill.ReplaceAll(html, dict);
       PreviewWebBrowser.DocumentText = html;
-      //PreviewWebBrowser.Document.Encoding = Encoding.GetEncoding("euc-kr").ToString(); //GetEncoding("ks_c_5601-1987").ToString();
     }
   }
 }

@@ -60,7 +60,7 @@
           }
         }
       },
-      "FileHandler/1.0.0": {
+      "Parser/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -68,10 +68,10 @@
           "iTextSharp": "5.5.13.2"
         },
         "compile": {
-          "bin/placeholder/FileHandler.dll": {}
+          "bin/placeholder/Parser.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FileHandler.dll": {}
+          "bin/placeholder/Parser.dll": {}
         }
       }
     }
@@ -197,15 +197,15 @@
         "version.txt"
       ]
     },
-    "FileHandler/1.0.0": {
+    "Parser/1.0.0": {
       "type": "project",
-      "path": "../PdfHandler/FileHandler.csproj",
-      "msbuildProject": "../PdfHandler/FileHandler.csproj"
+      "path": "../PdfHandler/Parser.csproj",
+      "msbuildProject": "../PdfHandler/Parser.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FileHandler >= 1.0.0"
+      "Parser >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -235,8 +235,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj": {
-              "projectPath": "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj"
+            "C:\\EmailWriter\\PdfHandler\\Parser.csproj": {
+              "projectPath": "C:\\EmailWriter\\PdfHandler\\Parser.csproj"
             }
           }
         }

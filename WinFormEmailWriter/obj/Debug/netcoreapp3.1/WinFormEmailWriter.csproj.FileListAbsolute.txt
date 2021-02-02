@@ -15,10 +15,10 @@ C:\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.gen
 C:\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.FrmMailWriter.resources
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\itextsharp.dll
-C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\FileHandler.dll
-C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\FileHandler.pdb
 C:\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.csproj.CopyComplete
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\ModelEditControl.dll
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
 C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\Parser.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\Parser.pdb

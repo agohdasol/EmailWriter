@@ -4,12 +4,12 @@
     "C:\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj": {}
   },
   "projects": {
-    "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj": {
+    "C:\\EmailWriter\\PdfHandler\\Parser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj",
-        "projectName": "FileHandler",
-        "projectPath": "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj",
+        "projectUniqueName": "C:\\EmailWriter\\PdfHandler\\Parser.csproj",
+        "projectName": "Parser",
+        "projectPath": "C:\\EmailWriter\\PdfHandler\\Parser.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
         "outputPath": "C:\\EmailWriter\\PdfHandler\\obj\\",
         "projectStyle": "PackageReference",
@@ -93,8 +93,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj": {
-                "projectPath": "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj"
+              "C:\\EmailWriter\\PdfHandler\\Parser.csproj": {
+                "projectPath": "C:\\EmailWriter\\PdfHandler\\Parser.csproj"
               }
             }
           }

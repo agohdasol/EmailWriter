@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wEeqxtxFwptATg+IhUiS1pZBVDKOXt48fPkxA4wwI9OCzC+4ZUC7Fpxe4rDdHEcCB0R1eHFAlT2gCWeb9XFIpg==",
+  "dgSpecHash": "iVHXHHVkzgrh5SECVVwrLz6Q1AHN6PBBEf1pio0kGsuv0VDFMytdmPpP2zxxG0GE6OZunQ8jyDiJFyttwoZUhw==",
   "success": true,
-  "projectFilePath": "C:\\EmailWriter\\PdfHandler\\FileHandler.csproj",
+  "projectFilePath": "C:\\EmailWriter\\PdfHandler\\Parser.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\itextsharp\\5.5.13.2\\itextsharp.5.5.13.2.nupkg.sha512",

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace FileHandler
+namespace Parser
 {
   public static class PdfParser
   {
