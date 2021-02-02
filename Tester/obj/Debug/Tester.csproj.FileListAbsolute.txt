@@ -5,3 +5,12 @@ C:\EmailWriter\Tester\obj\Debug\Tester.csprojAssemblyReference.cache
 C:\EmailWriter\Tester\obj\Debug\Tester.csproj.CoreCompileInputs.cache
 C:\EmailWriter\Tester\obj\Debug\Tester.exe
 C:\EmailWriter\Tester\obj\Debug\Tester.pdb
+C:\EmailWriter\Tester\bin\Debug\EntityFramework.dll
+C:\EmailWriter\Tester\bin\Debug\EntityFramework.SqlServer.dll
+C:\EmailWriter\Tester\bin\Debug\System.Data.SQLite.dll
+C:\EmailWriter\Tester\bin\Debug\System.Data.SQLite.EF6.dll
+C:\EmailWriter\Tester\bin\Debug\System.Data.SQLite.Linq.dll
+C:\EmailWriter\Tester\bin\Debug\EntityFramework.xml
+C:\EmailWriter\Tester\bin\Debug\EntityFramework.SqlServer.xml
+C:\EmailWriter\Tester\bin\Debug\System.Data.SQLite.xml
+C:\EmailWriter\Tester\obj\Debug\Tester.csproj.CopyComplete
