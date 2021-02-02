@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace FileHandler
 {
@@ -10,17 +11,23 @@ namespace FileHandler
       string lines;
       if (File.Exists(fileName))
       {
-        try
+        //try
+        //{
+
+        //}
+        //catch (Exception)
+        //{
+        //  lines = "";
+        //}
+        var endcoingCode = 51949;//euc-kr이면 51949
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        Encoding ks_c_5601 = Encoding.GetEncoding(endcoingCode);
+        Stream htmlStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+        using (StreamReader docStreamReader = new StreamReader(htmlStream, System.Text.Encoding.GetEncoding(51949), true))
         {
-          Stream htmlStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-          StreamReader docStreamReader = new StreamReader(htmlStream, System.Text.Encoding.Default);
           htmlStream.Position = 0;
 
           lines = docStreamReader.ReadToEnd();
-        }
-        catch (Exception)
-        {
-          lines = "";
         }
       }
       else
