@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Parser
+namespace DataProcessor
 {
   public class HtmlParser
   {

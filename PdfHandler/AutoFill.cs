@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Parser
+namespace DataProcessor
 {
   public static class AutoFill
   {

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormEmailWriter", "WinFormEmailWriter\WinFormEmailWriter.csproj", "{D169D892-8C0F-4316-BE05-E9C63B26BF6C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser", "PdfHandler\Parser.csproj", "{93889D5D-9939-4A9D-A99E-311AE7B2796A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor", "PdfHandler\DataProcessor.csproj", "{93889D5D-9939-4A9D-A99E-311AE7B2796A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{847D3958-2B3C-482F-9FC9-B322883F8103}"
 EndProject

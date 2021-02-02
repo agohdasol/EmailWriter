@@ -10,32 +10,38 @@ namespace Tester
 {
   class Program
   {
+    public static void ExecuteQueryString(SQLiteConnection conn, string sql)
+    {
+      var cmd = new SQLiteCommand(sql, conn);
+      cmd.ExecuteNonQuery();
+    }
     static void Main(string[] args)
     {
-      SQLiteConnection.CreateFile("test.sqlite");
-
-      var conn = new SQLiteConnection("Data Source=test.sqlite;");
+      SQLiteConnection.CreateFile("emailwriterdb.sqlite");
+      var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
       conn.Open();
 
-      string sql = "create table members (name varchar(20), age int)";
+      string sql = "create table company (id integer primary key autoincrement, name varchar(25), email varchar(50), address varchar(100), phone varchar(20))";
+      ExecuteQueryString(conn, sql);
+      sql = "create table department (id integer primary key autoincrement, name varchar(25))";
+      ExecuteQueryString(conn, sql);
+      sql = "create table manager (id integer primary key autoincrement, name varchar(25), email varchar(50), phone varchar(20), rank varchar(20), company_id integer, department_id integer)";
+      ExecuteQueryString(conn, sql);
 
+      sql = "insert into company (name, email) values ('아너스특허법률사무소', 'info@honorspat.com'), ('아아피텍코리아', 'info@iptk.co.kr')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "INSERT INTO manager (name, email, phone, rank) VALUES ('황다솔', 'dasol.hwang@honorspat.com', '010-4046-0091', '선임 연구원'), " +
+        "('정성원', 'asd@honorspat.com', '010-1226-0091', '선임 연구원'), " +
+        "('이다솜', 'qwe@honorspat.com', '010-4564-0091', '선임 연구원')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "select * from company";
       var cmd = new SQLiteCommand(sql, conn);
-      int result = cmd.ExecuteNonQuery();
-
-      sql = "create index idx01 on members(name)";
-      cmd = new SQLiteCommand(sql, conn);
-      result = cmd.ExecuteNonQuery();
-
-      sql = "insert into members (name, age) values ('황다솔', 30)";
-      cmd = new SQLiteCommand(sql, conn);
-      result = cmd.ExecuteNonQuery();
-
-      sql = "select * from members";
-      cmd = new SQLiteCommand(sql, conn);
       SQLiteDataReader rdr = cmd.ExecuteReader();
       while (rdr.Read())
       {
-        Console.WriteLine(rdr["name"] + " " + rdr["age"]);
+        Console.WriteLine(rdr["name"] + " " + rdr["email"]);
       }
       rdr.Close();
 
