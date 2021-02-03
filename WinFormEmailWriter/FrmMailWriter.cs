@@ -96,6 +96,7 @@ namespace WinFormEmailWriter
       html = AutoFill.ReplaceAll(html, dict);
       PreviewWebBrowser.DocumentText = html;
     }
+    #region Change ComboBox
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboCompany);
@@ -120,5 +121,6 @@ namespace WinFormEmailWriter
     {
       ComboBoxInitializer(CboTemplate);
     }
+    #endregion
   }
 }

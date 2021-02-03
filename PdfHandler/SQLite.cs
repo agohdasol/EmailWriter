@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace DataProcessor
@@ -8,23 +6,73 @@ namespace DataProcessor
   public class SQLite
   {
     private string DBPath { get; set; }
-    public List<string> GetAllNames(string tableName)
+    public List<string> GetAllColumns(string tableName, string columnName)
     {
-      var result=new List<string>();
+      var result = new List<string>();
       var conn = new SQLiteConnection($"Data Source={this.DBPath};");
       conn.Open();
 
-      string sql = $"select Name from {tableName}";
+      string sql = $"select {columnName} from {tableName}";
       var cmd = new SQLiteCommand(sql, conn);
       SQLiteDataReader rdr = cmd.ExecuteReader();
-      
+
       while (rdr.Read())
       {
-        result.Add(rdr["Name"].ToString());
+        result.Add(rdr[columnName].ToString());
       }
       rdr.Close();
       conn.Close();
 
+      return result;
+    }
+    public List<string> GetAllNames(string tableName)
+    {
+      return GetAllColumns(tableName, "Name");
+    }
+    private List<string> GetReplacingKeyword(string strHtml)
+    {
+      var replacerList = GetAllNames("Replacer");
+      var result = new List<string>();
+      foreach (var replacer in replacerList)
+      {
+        if (strHtml.Contains(replacer))
+        {
+          result.Add(replacer);
+        }
+      }
+      return result;
+    }
+    public List<Replacer> GetSelectedReplacerList(string strHtml)
+    {
+      var replacingKeywords = GetReplacingKeyword(strHtml);
+      var result = new List<Replacer>();
+      var conn = new SQLiteConnection($"Data Source={this.DBPath};");
+      conn.Open();
+      string sql;
+      SQLiteCommand cmd = null;
+      SQLiteDataReader rdr = null;
+      foreach (var keyword in replacingKeywords)
+      {
+        sql = $"select * from Replacer";
+        cmd = new SQLiteCommand(sql, conn);
+        rdr = cmd.ExecuteReader();
+
+        while (rdr.Read())
+        {
+          result.Add(
+              new Replacer()
+              {
+                Name = rdr["Name"].ToString(),
+                Location = rdr["Location"].ToString(),
+                Finder1 = rdr["Finder1"].ToString(),
+                Finder2 = rdr["Finder2"].ToString(),
+                Finder3 = rdr["Finder3"].ToString(),
+              }
+            );
+        }
+      }
+      rdr.Close();
+      conn.Close();
       return result;
     }
     public List<string> GetFilteredNames(string filteredTableName, string filteringTableName, string filterArgument)
@@ -40,14 +88,14 @@ namespace DataProcessor
       if (rdr.Read())
       {
         string filterArgumentId = rdr["Id"].ToString();
-      
 
-      //filterArgumentId 값으로 filteredTable 필터링
-      sql = $"select Name from {filteredTableName} m " +
-        $"left join {filteringTableName}{filteredTableName} cm on cm.{filteredTableName}_Id = m.Id " +
-        $"where cm.{filteringTableName}_Id = {filterArgumentId}";
-      cmd = new SQLiteCommand(sql, conn);
-      rdr = cmd.ExecuteReader();
+
+        //filterArgumentId 값으로 filteredTable 필터링
+        sql = $"select Name from {filteredTableName} m " +
+          $"left join {filteringTableName}{filteredTableName} cm on cm.{filteredTableName}_Id = m.Id " +
+          $"where cm.{filteringTableName}_Id = {filterArgumentId}";
+        cmd = new SQLiteCommand(sql, conn);
+        rdr = cmd.ExecuteReader();
       }
       while (rdr.Read())
       {
@@ -58,15 +106,11 @@ namespace DataProcessor
 
       return result;
     }
-    private static void ExecuteQueryString(SQLiteConnection conn, string sql)
-    {
-      var cmd = new SQLiteCommand(sql, conn);
-      cmd.ExecuteNonQuery();
-    }
-    public static void SQLiteInitializer()
-    {
-
-    }
+    //private static void ExecuteQueryString(SQLiteConnection conn, string sql)
+    //{
+    //  var cmd = new SQLiteCommand(sql, conn);
+    //  cmd.ExecuteNonQuery();
+    //}
     public SQLite(string DBPath)
     {
       this.DBPath = DBPath;

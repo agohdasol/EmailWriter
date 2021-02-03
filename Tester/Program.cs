@@ -61,6 +61,10 @@ namespace Tester
         "foreign key(TemplateGroup_Id) references TemplateGroup(Id), foreign key(Template_Id) references Template(Id))";
       ExecuteQueryString(conn, sql);
 
+      sql = "create table Replacer " +
+        "(Id integer primary key autoincrement, Name varchar(50), Location varchar(20), Finder1 varchar(50), Finder2 varchar(50), Finder3 varchar(50))";
+      ExecuteQueryString(conn, sql);
+
       sql = "insert into Company (Name, Email) values ('아너스특허법률사무소', 'info@honorspat.com'), ('아이피텍코리아', 'info@iptk.co.kr')";
       ExecuteQueryString(conn, sql);
 
@@ -91,7 +95,9 @@ namespace Tester
       ExecuteQueryString(conn, sql);
       sql = "insert into TemplateGroupTemplate (TemplateGroup_Id, Template_Id) values (1, 3), (2, 1), (2, 2)";
       ExecuteQueryString(conn, sql);
-
+      sql = "insert into Replacer (Name, Location, Finder1, Finder2, Finder3) values " +
+        "('##출원번호##', 'PDF', '의견제출통지서', '출 원 번 호', null), ('##출원인##', 'PDF', '의견제출통지서', '출 원 인 성 명', '(특')";
+      ExecuteQueryString(conn, sql);
 
       //sql = "select * from Manager m " +
       //  "left join Company_Manager cm on cm.Manager_Id = m.Id " +
