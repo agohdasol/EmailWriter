@@ -11,6 +11,7 @@ namespace WinFormEmailWriter
     public static List<string> Department { get; set; }
     public static List<string> Manager { get; set; }
     public static List<string> Template { get; set; }
+    public static List<string> TemplateGroup { get; set; }
     public FrmMailWriter()
     {
       InitializeComponent();
@@ -44,13 +45,21 @@ namespace WinFormEmailWriter
 
       bool startChecker = false;
       List<string> itemList;
-      for(int i=0; i<cboList.Count; i++)
+      for (int i = 0; i < cboList.Count; i++)
       {
         // 바뀐 콤보박스의 다음 콤보박스부터 초기화
         if (startChecker)
         {
+          cboList[i].SelectedIndex = -1;
           cboList[i].Items.Clear();
-          itemList = ComboBoxFilter(cboList[i-1], cboList[i].Name.ToString().Replace("Cbo", ""), cboList[i-1].Name.ToString().Replace("Cbo", ""));
+          if (changedComboBox == CboManager && cboList[i] == CboTemplateGroup)
+          {
+            itemList = ComboBoxFilter(CboDepartment, "TemplateGroup", "Department");
+          }
+          else
+          {
+            itemList = ComboBoxFilter(cboList[i - 1], cboList[i].Name.ToString().Replace("Cbo", ""), cboList[i - 1].Name.ToString().Replace("Cbo", ""));
+          }
           ComboBoxItemAdder(cboList[i], itemList);
         }
         if (changedComboBox == cboList[i])
@@ -58,6 +67,7 @@ namespace WinFormEmailWriter
           startChecker = true;
         }
       }
+      startChecker = false;
     }
     private static void GetDataForComboBox()
     {
@@ -65,6 +75,7 @@ namespace WinFormEmailWriter
       Company = db.GetAllNames("Company");
       Department = db.GetAllNames("Department");
       Manager = db.GetAllNames("Manager");
+      TemplateGroup = db.GetAllNames("TemplateGroup");
       Template = db.GetAllNames("Template");
     }
     private static void ComboBoxItemAdder(ComboBox comboBox, List<string> data)
@@ -85,10 +96,29 @@ namespace WinFormEmailWriter
       html = AutoFill.ReplaceAll(html, dict);
       PreviewWebBrowser.DocumentText = html;
     }
-
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboCompany);
+    }
+
+    private void CboDepartment_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      ComboBoxInitializer(CboDepartment);
+    }
+
+    private void CboManager_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      ComboBoxInitializer(CboManager);
+    }
+
+    private void CboTemplateGroup_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      ComboBoxInitializer(CboTemplateGroup);
+    }
+
+    private void CboTemplate_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      ComboBoxInitializer(CboTemplate);
     }
   }
 }

@@ -69,7 +69,7 @@ namespace WinFormEmailWriter
       // LblManager
       // 
       this.LblManager.AutoSize = true;
-      this.LblManager.Location = new System.Drawing.Point(683, 9);
+      this.LblManager.Location = new System.Drawing.Point(415, 9);
       this.LblManager.Name = "LblManager";
       this.LblManager.Size = new System.Drawing.Size(55, 15);
       this.LblManager.TabIndex = 0;
@@ -78,10 +78,11 @@ namespace WinFormEmailWriter
       // CboManager
       // 
       this.CboManager.FormattingEnabled = true;
-      this.CboManager.Location = new System.Drawing.Point(744, 6);
+      this.CboManager.Location = new System.Drawing.Point(476, 6);
       this.CboManager.Name = "CboManager";
       this.CboManager.Size = new System.Drawing.Size(121, 23);
       this.CboManager.TabIndex = 1;
+      this.CboManager.SelectedIndexChanged += new System.EventHandler(this.CboManager_SelectedIndexChanged);
       // 
       // LblTemplate
       // 
@@ -99,6 +100,7 @@ namespace WinFormEmailWriter
       this.CboTemplate.Name = "CboTemplate";
       this.CboTemplate.Size = new System.Drawing.Size(121, 23);
       this.CboTemplate.TabIndex = 1;
+      this.CboTemplate.SelectedIndexChanged += new System.EventHandler(this.CboTemplate_SelectedIndexChanged);
       // 
       // LblDepartment
       // 
@@ -116,6 +118,7 @@ namespace WinFormEmailWriter
       this.CboDepartment.Name = "CboDepartment";
       this.CboDepartment.Size = new System.Drawing.Size(121, 23);
       this.CboDepartment.TabIndex = 1;
+      this.CboDepartment.SelectedIndexChanged += new System.EventHandler(this.CboDepartment_SelectedIndexChanged);
       // 
       // GrpAttachedFile
       // 
@@ -167,7 +170,7 @@ namespace WinFormEmailWriter
       // LblTemplateGroup
       // 
       this.LblTemplateGroup.AutoSize = true;
-      this.LblTemplateGroup.Location = new System.Drawing.Point(442, 9);
+      this.LblTemplateGroup.Location = new System.Drawing.Point(648, 9);
       this.LblTemplateGroup.Name = "LblTemplateGroup";
       this.LblTemplateGroup.Size = new System.Drawing.Size(43, 15);
       this.LblTemplateGroup.TabIndex = 0;
@@ -176,10 +179,11 @@ namespace WinFormEmailWriter
       // CboTemplateGroup
       // 
       this.CboTemplateGroup.FormattingEnabled = true;
-      this.CboTemplateGroup.Location = new System.Drawing.Point(503, 6);
+      this.CboTemplateGroup.Location = new System.Drawing.Point(709, 6);
       this.CboTemplateGroup.Name = "CboTemplateGroup";
       this.CboTemplateGroup.Size = new System.Drawing.Size(121, 23);
       this.CboTemplateGroup.TabIndex = 1;
+      this.CboTemplateGroup.SelectedIndexChanged += new System.EventHandler(this.CboTemplateGroup_SelectedIndexChanged);
       // 
       // FrmMailWriter
       // 
