@@ -34,10 +34,13 @@ namespace DataProcessor
       conn.Open();
 
       //필터링 테이블에서 필터아규먼트의 Id값 반환
-      string sql = $"select id from {filteringTableName} where name = '{filterArgument}'";
+      string sql = $"select Id from {filteringTableName} where Name = '{filterArgument}'";
       var cmd = new SQLiteCommand(sql, conn);
       SQLiteDataReader rdr = cmd.ExecuteReader();
-      string filterArgumentId = rdr["Id"].ToString();
+      if (rdr.Read())
+      {
+        string filterArgumentId = rdr["Id"].ToString();
+      
 
       //filterArgumentId 값으로 filteredTable 필터링
       sql = $"select Name from {filteredTableName} m " +
@@ -45,7 +48,7 @@ namespace DataProcessor
         $"where cm.{filteringTableName}_Id = {filterArgumentId}";
       cmd = new SQLiteCommand(sql, conn);
       rdr = cmd.ExecuteReader();
-
+      }
       while (rdr.Read())
       {
         result.Add(rdr["Name"].ToString());

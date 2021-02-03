@@ -19,39 +19,45 @@ namespace WinFormEmailWriter
     private void FrmMailWriter_Load(object sender, EventArgs e)
     {
       GetDataForComboBox();
-      ComboBoxInitializer();
+      ComboBoxInitializer(CboCompany);
       CboCompany.Items.Clear();
       ComboBoxItemAdder(CboCompany, Company);
     }
     private List<string> ComboBoxFilter(ComboBox upperComboBox, string filteredTableName, string filteringTableName)
     {
       SQLite db = new SQLite("emailwriterdb.sqlite");
-      if (upperComboBox.SelectedValue != null)
+      if (upperComboBox.SelectedItem != null)
       {
-        return db.GetFilteredNames("Manager", "Company", upperComboBox.SelectedValue.ToString());
+        return db.GetFilteredNames(filteredTableName, filteringTableName, upperComboBox.SelectedItem.ToString());
       }
       else
       {
         return null;
       }
     }
-    private void ComboBoxInitializer()
+    private void ComboBoxInitializer(ComboBox changedComboBox)
     {
-      CboDepartment.Items.Clear();
-      var itemList = ComboBoxFilter(CboCompany, "Department", "Company");
-      ComboBoxItemAdder(CboDepartment, itemList);
+      List<ComboBox> cboList = new List<ComboBox>()
+      {
+        CboCompany, CboDepartment, CboManager, CboTemplateGroup, CboTemplate
+      };
 
-      CboTemplateGroup.Items.Clear();
-      itemList = ComboBoxFilter(CboDepartment, "TemplateGroup", "Department");
-      ComboBoxItemAdder(CboTemplateGroup, itemList);
-
-      CboManager.Items.Clear();
-      itemList = ComboBoxFilter(CboDepartment, "Manager", "Department");
-      ComboBoxItemAdder(CboManager, itemList);
-
-      CboTemplate.Items.Clear();
-      itemList = ComboBoxFilter(CboTemplateGroup, "Template", "TemplateGroup");
-      ComboBoxItemAdder(CboTemplate, itemList);
+      bool startChecker = false;
+      List<string> itemList;
+      for(int i=0; i<cboList.Count; i++)
+      {
+        // 바뀐 콤보박스의 다음 콤보박스부터 초기화
+        if (startChecker)
+        {
+          cboList[i].Items.Clear();
+          itemList = ComboBoxFilter(cboList[i-1], cboList[i].Name.ToString().Replace("Cbo", ""), cboList[i-1].Name.ToString().Replace("Cbo", ""));
+          ComboBoxItemAdder(cboList[i], itemList);
+        }
+        if (changedComboBox == cboList[i])
+        {
+          startChecker = true;
+        }
+      }
     }
     private static void GetDataForComboBox()
     {
@@ -82,7 +88,7 @@ namespace WinFormEmailWriter
 
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
     {
-      ComboBoxInitializer();
+      ComboBoxInitializer(CboCompany);
     }
   }
 }
