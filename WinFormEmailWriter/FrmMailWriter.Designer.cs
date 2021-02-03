@@ -42,6 +42,8 @@ namespace WinFormEmailWriter
       this.GrpPreview = new System.Windows.Forms.GroupBox();
       this.BtnWriteMail = new System.Windows.Forms.Button();
       this.PreviewWebBrowser = new System.Windows.Forms.WebBrowser();
+      this.LblTemplateGroup = new System.Windows.Forms.Label();
+      this.CboTemplateGroup = new System.Windows.Forms.ComboBox();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
@@ -62,11 +64,12 @@ namespace WinFormEmailWriter
       this.CboCompany.Name = "CboCompany";
       this.CboCompany.Size = new System.Drawing.Size(121, 23);
       this.CboCompany.TabIndex = 1;
+      this.CboCompany.SelectedIndexChanged += new System.EventHandler(this.CboCompany_SelectedIndexChanged);
       // 
       // LblManager
       // 
       this.LblManager.AutoSize = true;
-      this.LblManager.Location = new System.Drawing.Point(422, 9);
+      this.LblManager.Location = new System.Drawing.Point(683, 9);
       this.LblManager.Name = "LblManager";
       this.LblManager.Size = new System.Drawing.Size(55, 15);
       this.LblManager.TabIndex = 0;
@@ -75,7 +78,7 @@ namespace WinFormEmailWriter
       // CboManager
       // 
       this.CboManager.FormattingEnabled = true;
-      this.CboManager.Location = new System.Drawing.Point(483, 6);
+      this.CboManager.Location = new System.Drawing.Point(744, 6);
       this.CboManager.Name = "CboManager";
       this.CboManager.Size = new System.Drawing.Size(121, 23);
       this.CboManager.TabIndex = 1;
@@ -83,7 +86,7 @@ namespace WinFormEmailWriter
       // LblTemplate
       // 
       this.LblTemplate.AutoSize = true;
-      this.LblTemplate.Location = new System.Drawing.Point(630, 9);
+      this.LblTemplate.Location = new System.Drawing.Point(891, 9);
       this.LblTemplate.Name = "LblTemplate";
       this.LblTemplate.Size = new System.Drawing.Size(31, 15);
       this.LblTemplate.TabIndex = 0;
@@ -92,7 +95,7 @@ namespace WinFormEmailWriter
       // CboTemplate
       // 
       this.CboTemplate.FormattingEnabled = true;
-      this.CboTemplate.Location = new System.Drawing.Point(667, 6);
+      this.CboTemplate.Location = new System.Drawing.Point(928, 6);
       this.CboTemplate.Name = "CboTemplate";
       this.CboTemplate.Size = new System.Drawing.Size(121, 23);
       this.CboTemplate.TabIndex = 1;
@@ -119,7 +122,7 @@ namespace WinFormEmailWriter
       this.GrpAttachedFile.Controls.Add(this.BtnAddFile);
       this.GrpAttachedFile.Location = new System.Drawing.Point(12, 44);
       this.GrpAttachedFile.Name = "GrpAttachedFile";
-      this.GrpAttachedFile.Size = new System.Drawing.Size(776, 88);
+      this.GrpAttachedFile.Size = new System.Drawing.Size(1061, 88);
       this.GrpAttachedFile.TabIndex = 3;
       this.GrpAttachedFile.TabStop = false;
       this.GrpAttachedFile.Text = "첨부파일";
@@ -140,7 +143,7 @@ namespace WinFormEmailWriter
       this.GrpPreview.Controls.Add(this.PreviewWebBrowser);
       this.GrpPreview.Location = new System.Drawing.Point(12, 149);
       this.GrpPreview.Name = "GrpPreview";
-      this.GrpPreview.Size = new System.Drawing.Size(776, 289);
+      this.GrpPreview.Size = new System.Drawing.Size(1061, 289);
       this.GrpPreview.TabIndex = 3;
       this.GrpPreview.TabStop = false;
       this.GrpPreview.Text = "미리보기";
@@ -161,24 +164,43 @@ namespace WinFormEmailWriter
       this.PreviewWebBrowser.Size = new System.Drawing.Size(776, 289);
       this.PreviewWebBrowser.TabIndex = 1;
       // 
+      // LblTemplateGroup
+      // 
+      this.LblTemplateGroup.AutoSize = true;
+      this.LblTemplateGroup.Location = new System.Drawing.Point(442, 9);
+      this.LblTemplateGroup.Name = "LblTemplateGroup";
+      this.LblTemplateGroup.Size = new System.Drawing.Size(43, 15);
+      this.LblTemplateGroup.TabIndex = 0;
+      this.LblTemplateGroup.Text = "그룹명";
+      // 
+      // CboTemplateGroup
+      // 
+      this.CboTemplateGroup.FormattingEnabled = true;
+      this.CboTemplateGroup.Location = new System.Drawing.Point(503, 6);
+      this.CboTemplateGroup.Name = "CboTemplateGroup";
+      this.CboTemplateGroup.Size = new System.Drawing.Size(121, 23);
+      this.CboTemplateGroup.TabIndex = 1;
+      // 
       // FrmMailWriter
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(1085, 450);
       this.Controls.Add(this.GrpPreview);
       this.Controls.Add(this.GrpAttachedFile);
       this.Controls.Add(this.CboTemplate);
       this.Controls.Add(this.CboDepartment);
+      this.Controls.Add(this.CboTemplateGroup);
       this.Controls.Add(this.CboManager);
       this.Controls.Add(this.CboCompany);
       this.Controls.Add(this.LblTemplate);
       this.Controls.Add(this.LblDepartment);
+      this.Controls.Add(this.LblTemplateGroup);
       this.Controls.Add(this.LblManager);
       this.Controls.Add(this.LblCompany);
       this.Name = "FrmMailWriter";
       this.Text = "메일 작성 프로그램";
-      this.Load += new System.EventHandler(this.Form1_Load);
+      this.Load += new System.EventHandler(this.FrmMailWriter_Load);
       this.GrpAttachedFile.ResumeLayout(false);
       this.GrpPreview.ResumeLayout(false);
       this.ResumeLayout(false);
@@ -201,6 +223,8 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.GroupBox GrpPreview;
     private System.Windows.Forms.Button BtnWriteMail;
     private System.Windows.Forms.WebBrowser PreviewWebBrowser;
+    private System.Windows.Forms.Label LblTemplateGroup;
+    private System.Windows.Forms.ComboBox CboTemplateGroup;
   }
 }
 

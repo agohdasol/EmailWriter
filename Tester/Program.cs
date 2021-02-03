@@ -10,7 +10,7 @@ namespace Tester
 {
   class Program
   {
-    public static void ExecuteQueryString(SQLiteConnection conn, string sql)
+    private static void ExecuteQueryString(SQLiteConnection conn, string sql)
     {
       var cmd = new SQLiteCommand(sql, conn);
       cmd.ExecuteNonQuery();
@@ -21,40 +21,92 @@ namespace Tester
       var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
       conn.Open();
 
-      string sql = "create table company (id integer primary key autoincrement, name varchar(25), email varchar(50), address varchar(100), phone varchar(20))";
-      ExecuteQueryString(conn, sql);
-      sql = "create table department (id integer primary key autoincrement, name varchar(25))";
-      ExecuteQueryString(conn, sql);
-      sql = "create table manager (id integer primary key autoincrement, name varchar(25), email varchar(50), phone varchar(20), rank varchar(20), company_id integer, department_id integer)";
-      ExecuteQueryString(conn, sql);
-      sql = "create table template (id integer primary key autoincrement, name varchar(25), department_id integer)";
+      string sql = "create table Company " +
+        "(Id integer primary key autoincrement, Name varchar(25), Email varchar(50), Address varchar(100), Phone varchar(20))";
       ExecuteQueryString(conn, sql);
 
-      sql = "insert into company (name, email) values ('아너스특허법률사무소', 'info@honorspat.com'), ('아이피텍코리아', 'info@iptk.co.kr')";
+      sql = "create table Department " +
+        "(Id integer primary key autoincrement, Name varchar(25))";
       ExecuteQueryString(conn, sql);
 
-      sql = "insert into department (name) values ('관리팀'), ('특허팀')";
+      sql = "create table TemplateGroup " +
+        "(Id integer primary key autoincrement, Name varchar(25), Department_Id integer," +
+        "foreign key(Department_Id) references Department(Id))";
       ExecuteQueryString(conn, sql);
 
-      sql = "insert into template (name, department_id) values ('OA접수보고', 2), ('신건수임', 2), ('해외출원기일', 1)";
+      sql = "create table Manager " +
+        "(Id integer primary key autoincrement, Name varchar(25), Email varchar(50), Phone varchar(20), Rank varchar(20))";
       ExecuteQueryString(conn, sql);
 
-      sql = "INSERT INTO manager (name, email, phone, rank, company_id, department_id)" +
-        "VALUES ('황다솔', 'dasol.hwang@honorspat.com', '010-4563-0091', '선임 연구원', 1, 2), " +
-        "('정성원', 'asd@honorspat.com', '010-1226-0091', '선임 연구원', 1, 2), " +
-        "('이다솜', 'qwe@honorspat.com', '010-4564-0091', '선임 연구원', 1, 2), " +
-        "('김가영', 'zxc@honorspat.com', '010-7415-0091', '대리', 1, 1), " +
-        "('최한나', 'zer@honorspat.com', '010-7852-0091', '대리', 2, null)";
+      sql = "create table Template (Id integer primary key autoincrement, Name varchar(25))";
       ExecuteQueryString(conn, sql);
 
-      //sql = "select * from company";
-      //var cmd = new SQLiteCommand(sql, conn);
-      //SQLiteDataReader rdr = cmd.ExecuteReader();
-      //while (rdr.Read())
-      //{
-      //  Console.WriteLine(rdr["name"] + " " + rdr["email"]);
-      //}
-      //rdr.Close();
+      sql = "create table CompanyManager (Id integer primary key autoincrement, Company_Id integer, Manager_Id integer," +
+        "foreign key(Company_Id) references Company(Id), foreign key(Manager_Id) references Manager(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table CompanyDepartment (Id integer primary key autoincrement, Company_Id integer, Department_Id integer," +
+        "foreign key(Company_Id) references Company(Id), foreign key(Department_Id) references Department(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table DepartmentManager (Id integer primary key autoincrement, Department_Id integer, Manager_Id integer," +
+        "foreign key(Department_Id) references Department(Id), foreign key(Manager_Id) references Manager(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table DepartmentTemplateGroup (Id integer primary key autoincrement, Department_Id integer, TemplateGroup_Id integer," +
+        "foreign key(Department_Id) references Department(Id), foreign key(TemplateGroup_Id) references TemplateGroup(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table TemplateGroupTemplate (Id integer primary key autoincrement, TemplateGroup_Id integer, Template_Id integer," +
+        "foreign key(TemplateGroup_Id) references TemplateGroup(Id), foreign key(Template_Id) references Template(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into Company (Name, Email) values ('아너스특허법률사무소', 'info@honorspat.com'), ('아이피텍코리아', 'info@iptk.co.kr')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into Department (Name) values ('관리팀'), ('특허팀')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into TemplateGroup (Name) values ('관리팀'), ('특허팀')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into Template (Name) values ('OA접수보고'), ('신건수임'), ('해외출원기일')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "INSERT INTO Manager (Name, Email, Phone, Rank)" +
+        "VALUES ('황다솔', 'dasol.hwang@honorspat.com', '010-4563-0091', '선임 연구원'), " +
+        "('정성원', 'asd@honorspat.com', '010-1226-0091', '선임 연구원'), " +
+        "('이다솜', 'qwe@honorspat.com', '010-4564-0091', '선임 연구원'), " +
+        "('김가영', 'zxc@honorspat.com', '010-7415-0091', '대리'), " +
+        "('최한나', 'zer@honorspat.com', '010-7852-0091', '대리')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into CompanyManager (Company_Id, Manager_Id) values (1, 1), (1, 2), (1, 3), (1, 4), (2, 5), (2, 1), (2, 2), (2, 3)";
+      ExecuteQueryString(conn, sql);
+      sql = "insert into CompanyDepartment (Company_Id, Department_Id) values (1, 1), (1, 2), (2, 1)";
+      ExecuteQueryString(conn, sql);
+      sql = "insert into DepartmentManager (Department_Id, Manager_Id) values (1, 4), (1, null), (2, 1), (2, 2), (2, 3)";
+      ExecuteQueryString(conn, sql);
+      sql = "insert into DepartmentTemplateGroup (Department_Id, TemplateGroup_Id) values (1, 1), (2, 2)";
+      ExecuteQueryString(conn, sql);
+      sql = "insert into TemplateGroupTemplate (TemplateGroup_Id, Template_Id) values (1, 3), (2, 1), (2, 2)";
+      ExecuteQueryString(conn, sql);
+
+
+      //sql = "select * from Manager m " +
+      //  "left join Company_Manager cm on cm.Manager_Id = m.Id " +
+      //  "where cm.Company_Id = 2";
+
+      //Select Id from sometable where Name like '%omm%'
+      sql = "select Id from Company where Name = '아이피텍코리아'";
+
+      var cmd = new SQLiteCommand(sql, conn);
+      SQLiteDataReader rdr = cmd.ExecuteReader();
+      while (rdr.Read())
+      {
+        Console.WriteLine(rdr["Id"]);
+      }
+      rdr.Close();
 
       conn.Close();
     }

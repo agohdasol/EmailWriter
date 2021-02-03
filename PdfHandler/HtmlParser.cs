@@ -24,13 +24,13 @@ namespace DataProcessor
         }
         catch (Exception)
         {
-          lines = "";
+          lines = "메일 템플릿 파일이 올바르지 않습니다.";
         }
 
       }
       else
       {
-        lines = "";
+        lines = "메일 템플릿 파일이 존재하지 않습니다.";
       }
       return lines;
     }
