@@ -41,6 +41,9 @@ namespace Tester
       sql = "create table Template (Id integer primary key autoincrement, Name varchar(25))";
       ExecuteQueryString(conn, sql);
 
+      sql = "create table FileName (Id integer primary key autoincrement, Name varchar(25))";
+      ExecuteQueryString(conn, sql);
+
       sql = "create table CompanyManager (Id integer primary key autoincrement, Company_Id integer, Manager_Id integer," +
         "foreign key(Company_Id) references Company(Id), foreign key(Manager_Id) references Manager(Id))";
       ExecuteQueryString(conn, sql);
@@ -61,6 +64,10 @@ namespace Tester
         "foreign key(TemplateGroup_Id) references TemplateGroup(Id), foreign key(Template_Id) references Template(Id))";
       ExecuteQueryString(conn, sql);
 
+      sql = "create table TemplateFileName (Id integer primary key autoincrement, Template_Id integer, FileName_Id integer," +
+        "foreign key(Template_Id) references Template(Id), foreign key(FileName_Id) references FileName(Id))";
+      ExecuteQueryString(conn, sql);
+
       sql = "create table Replacer " +
         "(Id integer primary key autoincrement, Name varchar(50), Location varchar(20), Finder1 varchar(50), Finder2 varchar(50), Finder3 varchar(50))";
       ExecuteQueryString(conn, sql);
@@ -75,6 +82,9 @@ namespace Tester
       ExecuteQueryString(conn, sql);
 
       sql = "insert into Template (Name) values ('OA접수보고'), ('신건수임'), ('해외출원기일')";
+      ExecuteQueryString(conn, sql);
+
+      sql = "insert into FileName (Name) values ('의견제출통지서'), ('거절결정서'), ('출원서')";
       ExecuteQueryString(conn, sql);
 
       sql = "INSERT INTO Manager (Name, Email, Phone, Rank)" +
@@ -94,6 +104,8 @@ namespace Tester
       sql = "insert into DepartmentTemplateGroup (Department_Id, TemplateGroup_Id) values (1, 1), (2, 2)";
       ExecuteQueryString(conn, sql);
       sql = "insert into TemplateGroupTemplate (TemplateGroup_Id, Template_Id) values (1, 3), (2, 1), (2, 2)";
+      ExecuteQueryString(conn, sql);
+      sql = "insert into TemplateFileName (Template_Id, FileName_Id) values (1, 1), (1, 2)";
       ExecuteQueryString(conn, sql);
       sql = "insert into Replacer (Name, Location, Finder1, Finder2, Finder3) values " +
         "('##출원번호##', 'PDF', '의견제출통지서', '출 원 번 호', null), ('##출원인##', 'PDF', '의견제출통지서', '출 원 인 성 명', '(특')";

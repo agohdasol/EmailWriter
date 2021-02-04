@@ -8,8 +8,9 @@ namespace DataProcessor
   {
     public string Name { get; set; }
     public string Location { get; set; }
-    public string Finder1 { get; set; }
+    public string Finder1 { get; set; } //In PDF, It means keyword at FileName. In DB, It means TableName.
     public string Finder2 { get; set; }
     public string Finder3 { get; set; }
+    
   }
 }
