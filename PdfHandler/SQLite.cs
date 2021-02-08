@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Linq;
 
 namespace DataProcessor
 {
@@ -32,15 +33,7 @@ namespace DataProcessor
     private List<string> GetReplacingKeyword(string strHtml)
     {
       var replacerList = GetAllNames("Replacer");
-      var result = new List<string>();
-      foreach (var replacer in replacerList)
-      {
-        if (strHtml.Contains(replacer))
-        {
-          result.Add(replacer);
-        }
-      }
-      return result;
+      return replacerList.Where(r => strHtml.Contains(r)).ToList();
     }
     public List<Replacer> GetSelectedReplacerList(string strHtml)
     {

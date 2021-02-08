@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace DataProcessor
 {
@@ -8,16 +8,16 @@ namespace DataProcessor
   {
     public List<string> FilePathes { get; set; }
 
-    public List<string> GetReplacingFileList()
+    public FileAttacher(List<string> filePathes)
     {
-      List<string> result=new List<string>();
-
-      // use Linq
-      //파일명만 추출
-      //추출된 파일명에서 키워드 포함여부 확인
-      //키워드 포함된 파일만 result에 Add
-
-      return result;
+      FilePathes = filePathes;
+    }
+    public List<string> GetReplacingFileList(List<string> replacerList)
+    {
+      return FilePathes.Where(
+        f => replacerList.Any(
+          s => Path.GetFileNameWithoutExtension(f).Contains(s))
+        ).ToList();
     }
   }
 }

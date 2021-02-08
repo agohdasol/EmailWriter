@@ -14,3 +14,5 @@ C:\EmailWriter\Tester\bin\Debug\EntityFramework.xml
 C:\EmailWriter\Tester\bin\Debug\EntityFramework.SqlServer.xml
 C:\EmailWriter\Tester\bin\Debug\System.Data.SQLite.xml
 C:\EmailWriter\Tester\obj\Debug\Tester.csproj.CopyComplete
+C:\EmailWriter\Tester\bin\Debug\DataProcessor.dll
+C:\EmailWriter\Tester\bin\Debug\DataProcessor.pdb

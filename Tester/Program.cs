@@ -1,9 +1,7 @@
-﻿using System;
+﻿using DataProcessor;
+using Microsoft.Office.Interop.Outlook;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Data.SQLite;
 
 namespace Tester
@@ -15,7 +13,7 @@ namespace Tester
       var cmd = new SQLiteCommand(sql, conn);
       cmd.ExecuteNonQuery();
     }
-    static void Main(string[] args)
+    private static void MakeSampleDB()
     {
       SQLiteConnection.CreateFile("emailwriterdb.sqlite");
       var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
@@ -127,6 +125,69 @@ namespace Tester
       rdr.Close();
 
       conn.Close();
+    }
+    private static void OutlookFoward()
+    {
+      Application app = new Application();
+      Selection mySelections = app.ActiveExplorer().Selection;
+      foreach (var mySelection in mySelections)
+      {
+        MailItem mailItem = (MailItem)mySelection;
+        var forwardItem = mailItem.Forward();
+        //forwardItem.Subject = "This is the subject";
+        forwardItem.To = "someone@example.com";
+        forwardItem.Body = "This is the message.";
+        try
+        {
+          forwardItem.Attachments.Add(@"C:\Users\user\Downloads\Git-2.30.0.2-64-bit.exe");//logPath is a string holding path to the log.txt file
+        }
+        catch (System.Runtime.InteropServices.COMException)
+        {
+          //안내문 표시하기
+        }
+        Console.WriteLine("되냐");
+        forwardItem.Display(true);
+      }
+      //MailItem mailItem = app.CreateItem(OlItemType.olMailItem);
+      //mailItem.Importance = OlImportance.olImportanceHigh;
+      //Selection mySelection = Globals.ThisAddIn.Application.ActiveExplorer().Selection;
+      //MailItem mailItem = null;
+      //foreach (Object obj in mySelection)
+      //{
+      //  if (obj is Microsoft.Office.Interop.Outlook.MailItem)
+      //  {
+      //    mailItem = (Microsoft.Office.Interop.Outlook.MailItem)obj;
+      //    mailItem.Forward();
+      //    mailItem.Recipients.Add("test@web.com");
+      //    mailItem.Send();
+      //  }
+      //}
+    }
+    private static void AttachedFileTest()
+    {
+      List<string> filePathes = new List<string>()
+      {
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 등록공보.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견제출통지서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\KU_KU20150002705UP-마스크.pdf",
+      };
+      List<string> replacer = new List<string>()
+      {
+        "의견제출통지서",
+        "마스크",
+      };
+      FileAttacher fileAttacher = new FileAttacher(filePathes);
+      var files = fileAttacher.GetReplacingFileList(replacer);
+
+      foreach(var file in files)
+      {
+        Console.WriteLine(file);
+      }
+    }
+    static void Main(string[] args)
+    {
+      AttachedFileTest();
     }
   }
 }
