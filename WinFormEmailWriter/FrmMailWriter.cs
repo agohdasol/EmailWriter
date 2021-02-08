@@ -87,14 +87,24 @@ namespace WinFormEmailWriter
     }
     private void BtnAddFile_Click(object sender, EventArgs e)
     {
-      string html = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\OA접수보고.htm");
-      var dict = new Dictionary<string, string>()
+      string strHtml = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\OA접수보고.htm");
+      SQLite db = new SQLite("emailwriterdb.sqlite");
+      Replacer replacers = new Replacer()
       {
-        { "##출원번호##", "10-2020-0001121" },
-        { "##출원인##", "주식회사 테스트" },
+        ReplacerList = db.GetSelectedReplacerList(strHtml)
       };
-      html = AutoFill.ReplaceAll(html, dict);
-      PreviewWebBrowser.DocumentText = html;
+
+      List<string> filePathes = new List<string>()
+      {
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 등록공보.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견제출통지서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\KU_KU20150002705UP-마스크.pdf",
+      };
+
+      var dict = replacers.GetReplacerDict(strHtml, filePathes);
+      strHtml = AutoFill.ReplaceAll(strHtml, dict);
+      PreviewWebBrowser.DocumentText = strHtml;
     }
     #region Change ComboBox
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)

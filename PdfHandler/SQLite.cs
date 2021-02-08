@@ -30,14 +30,14 @@ namespace DataProcessor
     {
       return GetAllColumns(tableName, "Name");
     }
-    private List<string> GetReplacingKeyword(string strHtml)
+    private List<string> GetReplacingKeywordFromStrHtml(string strHtml)
     {
       var replacerList = GetAllNames("Replacer");
       return replacerList.Where(r => strHtml.Contains(r)).ToList();
     }
     public List<Replacer> GetSelectedReplacerList(string strHtml)
     {
-      var replacingKeywords = GetReplacingKeyword(strHtml);
+      var replacingKeywords = GetReplacingKeywordFromStrHtml(strHtml);
       var result = new List<Replacer>();
       var conn = new SQLiteConnection($"Data Source={this.DBPath};");
       conn.Open();
@@ -99,11 +99,6 @@ namespace DataProcessor
 
       return result;
     }
-    //private static void ExecuteQueryString(SQLiteConnection conn, string sql)
-    //{
-    //  var cmd = new SQLiteCommand(sql, conn);
-    //  cmd.ExecuteNonQuery();
-    //}
     public SQLite(string DBPath)
     {
       this.DBPath = DBPath;

@@ -12,12 +12,17 @@ namespace DataProcessor
     {
       FilePathes = filePathes;
     }
-    public List<string> GetReplacingFileList(List<string> replacerList)
+    public List<string> GetReplacingFileList(List<string> strReplacerList)
     {
       return FilePathes.Where(
-        f => replacerList.Any(
+        f => strReplacerList.Any(
           s => Path.GetFileNameWithoutExtension(f).Contains(s))
         ).ToList();
+    }
+    public List<string> GetReplacingFileList(List<Replacer> replacers)
+    {
+      var replacerList = replacers.Select(r => r.Finder1).ToList();
+      return GetReplacingFileList(replacerList);
     }
   }
 }
