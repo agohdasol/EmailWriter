@@ -48,8 +48,15 @@ namespace DataProcessor
       {
         string[] texts = rawText.Split('\n');
         result = texts.FirstOrDefault(s => s.StartsWith(startKeyText));
-        int found = result.IndexOf(startKeyText);
-        result = result.Substring(found + startKeyText.Length).Trim();
+        if (result != null)
+        {
+          int found = result.IndexOf(startKeyText);
+          result = result.Substring(found + startKeyText.Length).Trim();
+        }
+        else
+        {
+          result = "";
+        }
       }
       return result;
     }
@@ -59,8 +66,16 @@ namespace DataProcessor
       if (rawText != null)
       {
         result = TextParserAfterString(rawText, startKeyText);
-        int found = result.IndexOf(endKeyText);
-        result = result.Remove(found).Trim();
+        if (result != null && result != "")
+        {
+          int found = result.IndexOf(endKeyText);
+          result = result.Remove(found).Trim();
+        }
+        else
+        {
+          result = "";
+        }
+
       }
       return result;
     }

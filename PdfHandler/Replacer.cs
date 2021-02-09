@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DataProcessor
 {
@@ -14,24 +12,37 @@ namespace DataProcessor
 
     public List<Replacer> ReplacerList { get; set; }
 
-    public Dictionary<string,string> GetReplacerDict(string strHtml, List<string> filePathes)
+    public Dictionary<string, string> GetReplacerDict(string strHtml, List<string> filePathes)
     {
       FileAttacher attachedFiles = new FileAttacher(filePathes);
       var replacingFiles = attachedFiles.GetReplacingFileList(ReplacerList);
 
       Dictionary<string, string> result = new Dictionary<string, string>();
+      //딕셔너리 키 중복이 없어야함...
       foreach (var file in replacingFiles)
       {
         var strPDF = PdfParser.PdfToString(file);
         foreach (var replacer in ReplacerList)
         {
-          if (replacer.Finder3 == null)
+          if (result.ContainsKey(replacer.Name))
           {
-            result.Add(replacer.Name, PdfParser.TextParserAfterString(strHtml, replacer.Finder2));
+            //중복 키 방지
+            if (result[replacer.Name] == null || result[replacer.Name] == "")
+            {
+              result.Remove(replacer.Name); //키가 있으나 밸류가 공백인 경우 다른파일에서 탐색
+            }
+            else
+            {
+              continue;
+            }
+          }
+          if (replacer.Finder3 == null || replacer.Finder3 == "")
+          {
+            result.Add(replacer.Name, PdfParser.TextParserAfterString(strPDF, replacer.Finder2));
           }
           else
           {
-            result.Add(replacer.Name, PdfParser.TextParserBetweenString(strHtml, replacer.Finder2, replacer.Finder3));
+            result.Add(replacer.Name, PdfParser.TextParserBetweenString(strPDF, replacer.Finder2, replacer.Finder3));
           }
         }
       }

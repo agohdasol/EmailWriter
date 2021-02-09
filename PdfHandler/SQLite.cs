@@ -46,7 +46,7 @@ namespace DataProcessor
       SQLiteDataReader rdr = null;
       foreach (var keyword in replacingKeywords)
       {
-        sql = $"select * from Replacer";
+        sql = $"select * from Replacer where Name = '{keyword}'";
         cmd = new SQLiteCommand(sql, conn);
         rdr = cmd.ExecuteReader();
 
