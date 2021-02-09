@@ -96,14 +96,15 @@ namespace WinFormEmailWriter
         attachedFileBtn.Text = Path.GetFileName(filePath);
         attachedFileBtn.Name = $"attachedFileBtn{i++}";
         attachedFileBtn.Click += attachedFileBtn_Click;
-        //위치조절하여 생성
-        PnlAttachedFiles.Controls.Add(attachedFileBtn);
+        attachedFileBtn.AutoSizeMode = AutoSizeMode.GrowOnly;
+        attachedFileBtn.AutoSize = true;
+        FLPAttachedFiles.Controls.Add(attachedFileBtn);
       }
       
     }
     private void attachedFileBtn_Click(object sender, EventArgs e)
     {
-      PnlAttachedFiles.Controls.Remove((Button)sender);
+      FLPAttachedFiles.Controls.Remove((Button)sender);
     }
     private void BtnAddFile_Click(object sender, EventArgs e)
     {

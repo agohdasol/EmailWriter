@@ -44,7 +44,7 @@ namespace WinFormEmailWriter
       this.PreviewWebBrowser = new System.Windows.Forms.WebBrowser();
       this.LblTemplateGroup = new System.Windows.Forms.Label();
       this.CboTemplateGroup = new System.Windows.Forms.ComboBox();
-      this.PnlAttachedFiles = new System.Windows.Forms.Panel();
+      this.FLPAttachedFiles = new System.Windows.Forms.FlowLayoutPanel();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
@@ -123,7 +123,7 @@ namespace WinFormEmailWriter
       // 
       // GrpAttachedFile
       // 
-      this.GrpAttachedFile.Controls.Add(this.PnlAttachedFiles);
+      this.GrpAttachedFile.Controls.Add(this.FLPAttachedFiles);
       this.GrpAttachedFile.Controls.Add(this.BtnAddFile);
       this.GrpAttachedFile.Location = new System.Drawing.Point(12, 44);
       this.GrpAttachedFile.Name = "GrpAttachedFile";
@@ -188,12 +188,12 @@ namespace WinFormEmailWriter
       this.CboTemplateGroup.TabIndex = 1;
       this.CboTemplateGroup.SelectedIndexChanged += new System.EventHandler(this.CboTemplateGroup_SelectedIndexChanged);
       // 
-      // PnlAttachedFiles
+      // FLPAttachedFiles
       // 
-      this.PnlAttachedFiles.Location = new System.Drawing.Point(7, 23);
-      this.PnlAttachedFiles.Name = "PnlAttachedFiles";
-      this.PnlAttachedFiles.Size = new System.Drawing.Size(1048, 59);
-      this.PnlAttachedFiles.TabIndex = 1;
+      this.FLPAttachedFiles.Location = new System.Drawing.Point(7, 23);
+      this.FLPAttachedFiles.Name = "FLPAttachedFiles";
+      this.FLPAttachedFiles.Size = new System.Drawing.Size(1048, 76);
+      this.FLPAttachedFiles.TabIndex = 1;
       // 
       // FrmMailWriter
       // 
@@ -239,7 +239,7 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.WebBrowser PreviewWebBrowser;
     private System.Windows.Forms.Label LblTemplateGroup;
     private System.Windows.Forms.ComboBox CboTemplateGroup;
-    private System.Windows.Forms.Panel PnlAttachedFiles;
+    private System.Windows.Forms.FlowLayoutPanel FLPAttachedFiles;
   }
 }
 
