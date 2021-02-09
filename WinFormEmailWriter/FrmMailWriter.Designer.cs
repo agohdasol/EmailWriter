@@ -38,13 +38,14 @@ namespace WinFormEmailWriter
       this.LblDepartment = new System.Windows.Forms.Label();
       this.CboDepartment = new System.Windows.Forms.ComboBox();
       this.GrpAttachedFile = new System.Windows.Forms.GroupBox();
+      this.FLPAttachedFiles = new System.Windows.Forms.FlowLayoutPanel();
+      this.BtnRemoveAllFiles = new System.Windows.Forms.Button();
       this.BtnAddFile = new System.Windows.Forms.Button();
       this.GrpPreview = new System.Windows.Forms.GroupBox();
       this.BtnWriteMail = new System.Windows.Forms.Button();
       this.PreviewWebBrowser = new System.Windows.Forms.WebBrowser();
       this.LblTemplateGroup = new System.Windows.Forms.Label();
       this.CboTemplateGroup = new System.Windows.Forms.ComboBox();
-      this.FLPAttachedFiles = new System.Windows.Forms.FlowLayoutPanel();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
@@ -124,6 +125,7 @@ namespace WinFormEmailWriter
       // GrpAttachedFile
       // 
       this.GrpAttachedFile.Controls.Add(this.FLPAttachedFiles);
+      this.GrpAttachedFile.Controls.Add(this.BtnRemoveAllFiles);
       this.GrpAttachedFile.Controls.Add(this.BtnAddFile);
       this.GrpAttachedFile.Location = new System.Drawing.Point(12, 44);
       this.GrpAttachedFile.Name = "GrpAttachedFile";
@@ -131,6 +133,24 @@ namespace WinFormEmailWriter
       this.GrpAttachedFile.TabIndex = 3;
       this.GrpAttachedFile.TabStop = false;
       this.GrpAttachedFile.Text = "첨부파일";
+      // 
+      // FLPAttachedFiles
+      // 
+      this.FLPAttachedFiles.AutoScroll = true;
+      this.FLPAttachedFiles.Location = new System.Drawing.Point(7, 23);
+      this.FLPAttachedFiles.Name = "FLPAttachedFiles";
+      this.FLPAttachedFiles.Size = new System.Drawing.Size(1048, 59);
+      this.FLPAttachedFiles.TabIndex = 1;
+      // 
+      // BtnRemoveAllFiles
+      // 
+      this.BtnRemoveAllFiles.Location = new System.Drawing.Point(161, 0);
+      this.BtnRemoveAllFiles.Name = "BtnRemoveAllFiles";
+      this.BtnRemoveAllFiles.Size = new System.Drawing.Size(75, 23);
+      this.BtnRemoveAllFiles.TabIndex = 0;
+      this.BtnRemoveAllFiles.Text = "모두제거";
+      this.BtnRemoveAllFiles.UseVisualStyleBackColor = true;
+      this.BtnRemoveAllFiles.Click += new System.EventHandler(this.BtnRemoveAllFiles_Click);
       // 
       // BtnAddFile
       // 
@@ -188,13 +208,6 @@ namespace WinFormEmailWriter
       this.CboTemplateGroup.TabIndex = 1;
       this.CboTemplateGroup.SelectedIndexChanged += new System.EventHandler(this.CboTemplateGroup_SelectedIndexChanged);
       // 
-      // FLPAttachedFiles
-      // 
-      this.FLPAttachedFiles.Location = new System.Drawing.Point(7, 23);
-      this.FLPAttachedFiles.Name = "FLPAttachedFiles";
-      this.FLPAttachedFiles.Size = new System.Drawing.Size(1048, 76);
-      this.FLPAttachedFiles.TabIndex = 1;
-      // 
       // FrmMailWriter
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -240,6 +253,7 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.Label LblTemplateGroup;
     private System.Windows.Forms.ComboBox CboTemplateGroup;
     private System.Windows.Forms.FlowLayoutPanel FLPAttachedFiles;
+    private System.Windows.Forms.Button BtnRemoveAllFiles;
   }
 }
 
