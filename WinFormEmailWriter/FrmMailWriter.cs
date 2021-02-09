@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WinFormEmailWriter
 {
@@ -12,6 +13,7 @@ namespace WinFormEmailWriter
     public static List<string> Manager { get; set; }
     public static List<string> Template { get; set; }
     public static List<string> TemplateGroup { get; set; }
+    public static List<string> AttachedFilePathes{ get; set; }
     public FrmMailWriter()
     {
       InitializeComponent();
@@ -85,27 +87,36 @@ namespace WinFormEmailWriter
         comboBox.Items.AddRange(data.ToArray());
       }
     }
+    private void InitializeAttachedFileButton(string[] filePathes)
+    {
+      int i = 0;
+      foreach(var filePath in filePathes)
+      {
+        Button attachedFileBtn = new Button();
+        attachedFileBtn.Text = Path.GetFileName(filePath);
+        attachedFileBtn.Name = $"attachedFileBtn{i++}";
+        attachedFileBtn.Click += attachedFileBtn_Click;
+        //위치조절하여 생성
+        PnlAttachedFiles.Controls.Add(attachedFileBtn);
+      }
+      
+    }
+    private void attachedFileBtn_Click(object sender, EventArgs e)
+    {
+      PnlAttachedFiles.Controls.Remove((Button)sender);
+    }
     private void BtnAddFile_Click(object sender, EventArgs e)
     {
-      string strHtml = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\OA접수보고.htm");
-      SQLite db = new SQLite("emailwriterdb.sqlite");
-      Replacer replacers = new Replacer()
+      using(OpenFileDialog openFileDialog=new OpenFileDialog())
       {
-        ReplacerList = db.GetSelectedReplacerList(strHtml)
-      };
-
-      List<string> filePathes = new List<string>()
-      {
-        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 등록공보.pdf",
-        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견서.pdf",
-        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견제출통지서.pdf",
-        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\KU_KU20150002705UP-마스크.pdf",
-        @"\\192.168.123.218\자료실\incoming\8.IP072208 - A082-6\중간사건\IP072208_의견제출통지서.pdf",
-      };
-
-      var dict = replacers.GetReplacerDict(strHtml, filePathes);
-      strHtml = AutoFill.ReplaceAll(strHtml, dict);
-      PreviewWebBrowser.DocumentText = strHtml;
+        openFileDialog.Multiselect = true;
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+          var filePathes = openFileDialog.FileNames;
+          InitializeAttachedFileButton(filePathes);
+          //AttachedFilePathes.AddRange(filePathes);
+        }
+      }
     }
     #region Change ComboBox
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,5 +144,28 @@ namespace WinFormEmailWriter
       ComboBoxInitializer(CboTemplate);
     }
     #endregion
+
+    private void BtnWriteMail_Click(object sender, EventArgs e)
+    {
+      string strHtml = HtmlParser.HtmlToString(@"C:\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\OA접수보고.htm");
+      SQLite db = new SQLite("emailwriterdb.sqlite");
+      Replacer replacers = new Replacer()
+      {
+        ReplacerList = db.GetSelectedReplacerList(strHtml)
+      };
+
+      List<string> filePathes = new List<string>()
+      {
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 등록공보.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\20-0489930 의견제출통지서.pdf",
+        @"\\192.168.123.218\자료실\담당자\황다솔\5. OJT\완료\실용신안\KU_KU20150002705UP-마스크.pdf",
+        @"\\192.168.123.218\자료실\incoming\8.IP072208 - A082-6\중간사건\IP072208_의견제출통지서.pdf",
+      };
+
+      var dict = replacers.GetReplacerDict(strHtml, filePathes);
+      strHtml = AutoFill.ReplaceAll(strHtml, dict);
+      PreviewWebBrowser.DocumentText = strHtml;
+    }
   }
 }

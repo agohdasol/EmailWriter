@@ -8,6 +8,10 @@ namespace DataProcessor
   {
     public List<string> FilePathes { get; set; }
 
+    public FileAttacher(string[] filePathes)
+    {
+      FilePathes = filePathes.ToList<string>();
+    }
     public FileAttacher(List<string> filePathes)
     {
       FilePathes = filePathes;
