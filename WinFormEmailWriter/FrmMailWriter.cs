@@ -157,8 +157,9 @@ namespace WinFormEmailWriter
       {
         Company = db.GetDataRow("Company", "Name", CboCompany.Text),
         Department = db.GetDataRow("Department", "Name", CboDepartment.Text),
+        Manager = db.GetDataRow("Manager", "Name", CboManager.Text),
         TemplateGroup = db.GetDataRow("TemplateGroup", "Name", CboTemplateGroup.Text),
-        Name = db.GetDataRow("Template", "Name", CboTemplate.Text),
+        TemplateName = db.GetDataRow("Template", "Name", CboTemplate.Text),
       };
     }
     #endregion
@@ -173,9 +174,9 @@ namespace WinFormEmailWriter
         ReplacerList = db.GetSelectedReplacerList(strHtml)
       };
       var dict = new Dictionary<string, string>();
-      if (AttachedFiles != null)
+      if (AttachedFiles != null)  //여기서 널체크하면 파일없을때는?
       {
-        dict = replacers.GetReplacerDict(strHtml, GetAttachedFilesList());
+        dict = replacers.GetReplacerDict(GetAttachedFilesList());  //여기에 SelectedTemplate 주입
       }
       strHtml = AutoFill.ReplaceAll(strHtml, dict);
       PreviewWebBrowser.DocumentText = strHtml;

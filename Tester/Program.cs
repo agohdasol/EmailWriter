@@ -107,7 +107,10 @@ namespace Tester
       sql = "insert into TemplateFileName (Template_Id, FileName_Id) values (1, 1), (1, 2)";
       ExecuteQueryString(conn, sql);
       sql = "insert into Replacer (Name, Location, Finder1, Finder2, Finder3) values " +
-        "('##출원번호##', 'PDF', '의견제출통지서', '출 원 번 호', null), ('##출원인##', 'PDF', '의견제출통지서', '출 원 인 성 명', '(특')";
+        "('##출원번호##', 'PDF', '의견제출통지서', '출 원 번 호', null), ('##출원인##', 'PDF', '의견제출통지서', '출 원 인 성 명', '(특'), " +
+        "('##명칭##', 'PDF', '의견제출통지서', '발 명 의 명 칭', null), ('##발명자##', 'PDF', '의견제출통지서', '발 명 자 성 명', null), " +
+        "('##마감일##', 'PDF', '의견제출통지서', '제출기일: ', null), ('##담당자##', 'DB', 'Manager', null, null), " +
+        "('##회사명##', 'DB', 'Company', null, null)";
       ExecuteQueryString(conn, sql);
 
       //sql = "select * from Manager m " +

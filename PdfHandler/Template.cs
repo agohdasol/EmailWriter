@@ -7,11 +7,12 @@ namespace DataProcessor
   {
     public DataRow Company { get; set; }
     public DataRow Department { get; set; }
+    public DataRow Manager { get; set; }
     public DataRow TemplateGroup { get; set; }
-    public DataRow Name { get; set; }
+    public DataRow TemplateName { get; set; }
     public string GetTemplateName()
     {
-      return Name["FileName"].ToString();
+      return TemplateName["FileName"].ToString();
     }
   }
 }
