@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace DataProcessor
   public class SQLite
   {
     private string DBPath { get; set; }
-    public List<string> GetAllColumns(string tableName, string columnName)
+    public List<string> GetColumn(string tableName, string columnName)
     {
       var result = new List<string>();
       var conn = new SQLiteConnection($"Data Source={this.DBPath};");
@@ -26,9 +27,29 @@ namespace DataProcessor
 
       return result;
     }
+    public DataTable GetAllColumns(string tableName)
+    {
+      var conn = new SQLiteConnection($"Data Source={this.DBPath};");
+      conn.Open();
+
+      string sql = $"select * from {tableName}";
+      var cmd = new SQLiteCommand(sql, conn);
+      SQLiteDataReader rdr = cmd.ExecuteReader();
+      DataTable dt = new DataTable();
+      dt.Load(rdr);
+      rdr.Close();
+      conn.Close();
+
+      return dt;
+    }
+    public DataRow GetDataRow(string tableName, string columnName, string findValue)
+    {
+      DataTable dt = GetAllColumns(tableName);
+      return dt.Select($"{columnName} = '{findValue}'").FirstOrDefault();
+    }
     public List<string> GetAllNames(string tableName)
     {
-      return GetAllColumns(tableName, "Name");
+      return GetColumn(tableName, "Name");
     }
     private List<string> GetReplacingKeywordFromStrHtml(string strHtml)
     {
@@ -37,6 +58,7 @@ namespace DataProcessor
     }
     public List<Replacer> GetSelectedReplacerList(string strHtml)
     {
+      //템플릿 없을때 예외처리?
       var replacingKeywords = GetReplacingKeywordFromStrHtml(strHtml);
       var result = new List<Replacer>();
       var conn = new SQLiteConnection($"Data Source={this.DBPath};");

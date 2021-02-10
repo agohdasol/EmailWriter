@@ -14,12 +14,16 @@ namespace WinFormEmailWriter
     public static List<string> Manager { get; set; }
     public static List<string> Template { get; set; }
     public static List<string> TemplateGroup { get; set; }
-    public static List<string> AttachedFilePathes { get; set; } = new List<string>();
+    public static Dictionary<Button, string> AttachedFiles { get; set; } = new Dictionary<Button, string>();
+    public static Template SelectedTemplate { get; set; }
     public FrmMailWriter()
     {
       InitializeComponent();
     }
-
+    private static List<string> GetAttachedFilesList()
+    {
+      return new List<string>(AttachedFiles.Values);
+    }
     private void FrmMailWriter_Load(object sender, EventArgs e)
     {
       GetDataForComboBox();
@@ -98,10 +102,12 @@ namespace WinFormEmailWriter
         attachedFileBtn.AutoSizeMode = AutoSizeMode.GrowOnly;
         attachedFileBtn.AutoSize = true;
         FLPAttachedFiles.Controls.Add(attachedFileBtn);
+        AttachedFiles.Add(attachedFileBtn, filePath);
       }
     }
     private void attachedFileBtn_Click(object sender, EventArgs e)
     {
+      AttachedFiles.Remove((Button)sender);
       FLPAttachedFiles.Controls.Remove((Button)sender);
     }
     private void BtnAddFile_Click(object sender, EventArgs e)
@@ -111,16 +117,16 @@ namespace WinFormEmailWriter
         openFileDialog.Multiselect = true;
         if (openFileDialog.ShowDialog() == DialogResult.OK)
         {
-          var filePathes = openFileDialog.FileNames.Where(f => !AttachedFilePathes.Contains(f)).ToList();
+          var filePathes = openFileDialog.FileNames.Where(f => !GetAttachedFilesList().Contains(f)).ToList();
           AddAttachedFileButton(filePathes);
-          AttachedFilePathes.AddRange(filePathes);
+          GetAttachedFilesList().AddRange(filePathes);
         }
       }
     }
     private void BtnRemoveAllFiles_Click(object sender, EventArgs e)
     {
+      AttachedFiles.Clear();
       FLPAttachedFiles.Controls.Clear();
-      AttachedFilePathes.Clear();
     }
     #region Change ComboBox
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,21 +152,30 @@ namespace WinFormEmailWriter
     private void CboTemplate_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboTemplate);
+      SQLite db = new SQLite("emailwriterdb.sqlite");
+      SelectedTemplate = new Template()
+      {
+        Company = db.GetDataRow("Company", "Name", CboCompany.Text),
+        Department = db.GetDataRow("Department", "Name", CboDepartment.Text),
+        TemplateGroup = db.GetDataRow("TemplateGroup", "Name", CboTemplateGroup.Text),
+        Name = db.GetDataRow("Template", "Name", CboTemplate.Text),
+      };
     }
     #endregion
 
     private void BtnWriteMail_Click(object sender, EventArgs e)
     {
       SQLite db = new SQLite("emailwriterdb.sqlite");
-      string strHtml = HtmlParser.HtmlToString(@".\templates\OA접수보고.htm");
+      var templateFilePath = SelectedTemplate.GetTemplateName();
+      string strHtml = HtmlParser.HtmlToString(templateFilePath);
       Replacer replacers = new Replacer()
-      {s
+      {
         ReplacerList = db.GetSelectedReplacerList(strHtml)
       };
       var dict = new Dictionary<string, string>();
-      if (AttachedFilePathes != null)
+      if (AttachedFiles != null)
       {
-        dict = replacers.GetReplacerDict(strHtml, AttachedFilePathes);
+        dict = replacers.GetReplacerDict(strHtml, GetAttachedFilesList());
       }
       strHtml = AutoFill.ReplaceAll(strHtml, dict);
       PreviewWebBrowser.DocumentText = strHtml;

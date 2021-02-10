@@ -3,6 +3,7 @@ using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Data;
 
 namespace Tester
 {
@@ -36,7 +37,7 @@ namespace Tester
         "(Id integer primary key autoincrement, Name varchar(25), Email varchar(50), Phone varchar(20), Rank varchar(20))";
       ExecuteQueryString(conn, sql);
 
-      sql = "create table Template (Id integer primary key autoincrement, Name varchar(25))";
+      sql = "create table Template (Id integer primary key autoincrement, Name varchar(25), FileName varchar(255))";
       ExecuteQueryString(conn, sql);
 
       sql = "create table FileName (Id integer primary key autoincrement, Name varchar(25))";
@@ -79,7 +80,7 @@ namespace Tester
       sql = "insert into TemplateGroup (Name) values ('관리팀'), ('특허팀')";
       ExecuteQueryString(conn, sql);
 
-      sql = "insert into Template (Name) values ('OA접수보고'), ('신건수임'), ('해외출원기일')";
+      sql = "insert into Template (Name, FileName) values ('OA접수보고', '.\\templates\\OA접수보고.htm'), ('신건수임', '.\\templates\\OA접수보고.htm'), ('해외출원기일', '.\\templates\\OA접수보고.htm')";
       ExecuteQueryString(conn, sql);
 
       sql = "insert into FileName (Name) values ('의견제출통지서'), ('거절결정서'), ('출원서')";
@@ -185,9 +186,24 @@ namespace Tester
         Console.WriteLine(file);
       }
     }
+    private static void DataTableTest()
+    {
+      DataTable dt = new DataTable();
+      dt.Columns.Add("Name", typeof(string));
+      dt.Columns.Add("Num", typeof(Int32));
+      dt.Rows.Add("김밥", 123);
+      dt.Rows.Add("김치", 11231223);
+      dt.Rows.Add("와오앙", 12123);
+
+      var asd=dt.Rows;
+      foreach(DataRow r in asd)
+      {
+        Console.WriteLine(r["Num"]);
+      }
+    }
     static void Main(string[] args)
     {
-      AttachedFileTest();
+      MakeSampleDB();
     }
   }
 }
