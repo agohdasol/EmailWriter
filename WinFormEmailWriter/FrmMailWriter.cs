@@ -164,7 +164,7 @@ namespace WinFormEmailWriter
     }
     #endregion
 
-    private void BtnWriteMail_Click(object sender, EventArgs e)
+    private void BtnCreateMail_Click(object sender, EventArgs e)
     {
       SQLite db = new SQLite("emailwriterdb.sqlite");
       var templateFilePath = SelectedTemplate.GetTemplateName();
@@ -181,5 +181,10 @@ namespace WinFormEmailWriter
       strHtml = AutoFill.ReplaceAll(strHtml, dict);
       PreviewWebBrowser.DocumentText = strHtml;
     }
+    private void BtnWriteMail_Click(object sender, EventArgs e)
+    {
+
+    }
+
   }
 }

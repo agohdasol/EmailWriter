@@ -7,3 +7,12 @@ C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.AssemblyInfo.cs
 C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.csproj.CoreCompileInputs.cache
 C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.dll
 C:\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.pdb
+D:\HonorsCoding\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.deps.json
+D:\HonorsCoding\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.dll
+D:\HonorsCoding\EmailWriter\PdfHandler\bin\Debug\netstandard2.0\DataProcessor.pdb
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.csprojAssemblyReference.cache
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.AssemblyInfoInputs.cache
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.AssemblyInfo.cs
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.csproj.CoreCompileInputs.cache
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.dll
+D:\HonorsCoding\EmailWriter\PdfHandler\obj\Debug\netstandard2.0\DataProcessor.pdb
