@@ -54,7 +54,7 @@ namespace DataProcessor
     public void Forward()
     {
       Application app = new Application();
-      CboSelection mySelections = app.ActiveExplorer().Selection;
+      Selection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;
@@ -66,7 +66,7 @@ namespace DataProcessor
     public void ReplyAll()
     {
       Application app = new Application();
-      CboSelection mySelections = app.ActiveExplorer().Selection;
+      Selection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;
@@ -78,7 +78,7 @@ namespace DataProcessor
     public void Reply()
     {
       Application app = new Application();
-      CboSelection mySelections = app.ActiveExplorer().Selection;
+      Selection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;
