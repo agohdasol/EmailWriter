@@ -42,11 +42,14 @@ namespace WinFormEmailWriter
       this.BtnRemoveAllFiles = new System.Windows.Forms.Button();
       this.BtnAddFile = new System.Windows.Forms.Button();
       this.GrpPreview = new System.Windows.Forms.GroupBox();
+      this.BtnWriteMail = new System.Windows.Forms.Button();
       this.BtnCreateMail = new System.Windows.Forms.Button();
       this.PreviewWebBrowser = new System.Windows.Forms.WebBrowser();
       this.LblTemplateGroup = new System.Windows.Forms.Label();
       this.CboTemplateGroup = new System.Windows.Forms.ComboBox();
-      this.BtnWriteMail = new System.Windows.Forms.Button();
+      this.BtnForward = new System.Windows.Forms.Button();
+      this.BtnReply = new System.Windows.Forms.Button();
+      this.BtnReplyAll = new System.Windows.Forms.Button();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
@@ -65,7 +68,7 @@ namespace WinFormEmailWriter
       // 
       this.CboCompany.FormattingEnabled = true;
       this.CboCompany.Location = new System.Drawing.Point(78, 8);
-      this.CboCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.CboCompany.Margin = new System.Windows.Forms.Padding(4);
       this.CboCompany.Name = "CboCompany";
       this.CboCompany.Size = new System.Drawing.Size(154, 28);
       this.CboCompany.TabIndex = 1;
@@ -85,7 +88,7 @@ namespace WinFormEmailWriter
       // 
       this.CboManager.FormattingEnabled = true;
       this.CboManager.Location = new System.Drawing.Point(612, 8);
-      this.CboManager.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.CboManager.Margin = new System.Windows.Forms.Padding(4);
       this.CboManager.Name = "CboManager";
       this.CboManager.Size = new System.Drawing.Size(154, 28);
       this.CboManager.TabIndex = 1;
@@ -105,7 +108,7 @@ namespace WinFormEmailWriter
       // 
       this.CboTemplate.FormattingEnabled = true;
       this.CboTemplate.Location = new System.Drawing.Point(1193, 8);
-      this.CboTemplate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.CboTemplate.Margin = new System.Windows.Forms.Padding(4);
       this.CboTemplate.Name = "CboTemplate";
       this.CboTemplate.Size = new System.Drawing.Size(154, 28);
       this.CboTemplate.TabIndex = 1;
@@ -125,7 +128,7 @@ namespace WinFormEmailWriter
       // 
       this.CboDepartment.FormattingEnabled = true;
       this.CboDepartment.Location = new System.Drawing.Point(342, 8);
-      this.CboDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.CboDepartment.Margin = new System.Windows.Forms.Padding(4);
       this.CboDepartment.Name = "CboDepartment";
       this.CboDepartment.Size = new System.Drawing.Size(154, 28);
       this.CboDepartment.TabIndex = 1;
@@ -137,9 +140,9 @@ namespace WinFormEmailWriter
       this.GrpAttachedFile.Controls.Add(this.BtnRemoveAllFiles);
       this.GrpAttachedFile.Controls.Add(this.BtnAddFile);
       this.GrpAttachedFile.Location = new System.Drawing.Point(15, 59);
-      this.GrpAttachedFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.GrpAttachedFile.Margin = new System.Windows.Forms.Padding(4);
       this.GrpAttachedFile.Name = "GrpAttachedFile";
-      this.GrpAttachedFile.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.GrpAttachedFile.Padding = new System.Windows.Forms.Padding(4);
       this.GrpAttachedFile.Size = new System.Drawing.Size(1364, 117);
       this.GrpAttachedFile.TabIndex = 3;
       this.GrpAttachedFile.TabStop = false;
@@ -149,7 +152,7 @@ namespace WinFormEmailWriter
       // 
       this.FLPAttachedFiles.AutoScroll = true;
       this.FLPAttachedFiles.Location = new System.Drawing.Point(9, 31);
-      this.FLPAttachedFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.FLPAttachedFiles.Margin = new System.Windows.Forms.Padding(4);
       this.FLPAttachedFiles.Name = "FLPAttachedFiles";
       this.FLPAttachedFiles.Size = new System.Drawing.Size(1347, 79);
       this.FLPAttachedFiles.TabIndex = 1;
@@ -157,7 +160,7 @@ namespace WinFormEmailWriter
       // BtnRemoveAllFiles
       // 
       this.BtnRemoveAllFiles.Location = new System.Drawing.Point(207, 0);
-      this.BtnRemoveAllFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.BtnRemoveAllFiles.Margin = new System.Windows.Forms.Padding(4);
       this.BtnRemoveAllFiles.Name = "BtnRemoveAllFiles";
       this.BtnRemoveAllFiles.Size = new System.Drawing.Size(96, 31);
       this.BtnRemoveAllFiles.TabIndex = 0;
@@ -168,7 +171,7 @@ namespace WinFormEmailWriter
       // BtnAddFile
       // 
       this.BtnAddFile.Location = new System.Drawing.Point(87, 0);
-      this.BtnAddFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.BtnAddFile.Margin = new System.Windows.Forms.Padding(4);
       this.BtnAddFile.Name = "BtnAddFile";
       this.BtnAddFile.Size = new System.Drawing.Size(96, 31);
       this.BtnAddFile.TabIndex = 0;
@@ -178,22 +181,35 @@ namespace WinFormEmailWriter
       // 
       // GrpPreview
       // 
+      this.GrpPreview.Controls.Add(this.BtnReplyAll);
+      this.GrpPreview.Controls.Add(this.BtnReply);
+      this.GrpPreview.Controls.Add(this.BtnForward);
       this.GrpPreview.Controls.Add(this.BtnWriteMail);
       this.GrpPreview.Controls.Add(this.BtnCreateMail);
       this.GrpPreview.Controls.Add(this.PreviewWebBrowser);
       this.GrpPreview.Location = new System.Drawing.Point(15, 199);
-      this.GrpPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.GrpPreview.Margin = new System.Windows.Forms.Padding(4);
       this.GrpPreview.Name = "GrpPreview";
-      this.GrpPreview.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.GrpPreview.Padding = new System.Windows.Forms.Padding(4);
       this.GrpPreview.Size = new System.Drawing.Size(1364, 385);
       this.GrpPreview.TabIndex = 3;
       this.GrpPreview.TabStop = false;
       this.GrpPreview.Text = "미리보기";
       // 
+      // BtnWriteMail
+      // 
+      this.BtnWriteMail.Location = new System.Drawing.Point(207, 0);
+      this.BtnWriteMail.Name = "BtnWriteMail";
+      this.BtnWriteMail.Size = new System.Drawing.Size(94, 29);
+      this.BtnWriteMail.TabIndex = 2;
+      this.BtnWriteMail.Text = "새 메일";
+      this.BtnWriteMail.UseVisualStyleBackColor = true;
+      this.BtnWriteMail.Click += new System.EventHandler(this.BtnWriteMail_Click);
+      // 
       // BtnCreateMail
       // 
       this.BtnCreateMail.Location = new System.Drawing.Point(87, 0);
-      this.BtnCreateMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.BtnCreateMail.Margin = new System.Windows.Forms.Padding(4);
       this.BtnCreateMail.Name = "BtnCreateMail";
       this.BtnCreateMail.Size = new System.Drawing.Size(96, 31);
       this.BtnCreateMail.TabIndex = 0;
@@ -204,7 +220,7 @@ namespace WinFormEmailWriter
       // PreviewWebBrowser
       // 
       this.PreviewWebBrowser.Location = new System.Drawing.Point(0, 33);
-      this.PreviewWebBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.PreviewWebBrowser.Margin = new System.Windows.Forms.Padding(4);
       this.PreviewWebBrowser.Name = "PreviewWebBrowser";
       this.PreviewWebBrowser.Size = new System.Drawing.Size(998, 385);
       this.PreviewWebBrowser.TabIndex = 1;
@@ -223,21 +239,39 @@ namespace WinFormEmailWriter
       // 
       this.CboTemplateGroup.FormattingEnabled = true;
       this.CboTemplateGroup.Location = new System.Drawing.Point(912, 8);
-      this.CboTemplateGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.CboTemplateGroup.Margin = new System.Windows.Forms.Padding(4);
       this.CboTemplateGroup.Name = "CboTemplateGroup";
       this.CboTemplateGroup.Size = new System.Drawing.Size(154, 28);
       this.CboTemplateGroup.TabIndex = 1;
       this.CboTemplateGroup.SelectedIndexChanged += new System.EventHandler(this.CboTemplateGroup_SelectedIndexChanged);
       // 
-      // BtnWriteMail
+      // BtnForward
       // 
-      this.BtnWriteMail.Location = new System.Drawing.Point(207, 0);
-      this.BtnWriteMail.Name = "BtnWriteMail";
-      this.BtnWriteMail.Size = new System.Drawing.Size(94, 29);
-      this.BtnWriteMail.TabIndex = 2;
-      this.BtnWriteMail.Text = "메일쓰기";
-      this.BtnWriteMail.UseVisualStyleBackColor = true;
-      this.BtnWriteMail.Click += new System.EventHandler(this.BtnWriteMail_Click);
+      this.BtnForward.Location = new System.Drawing.Point(327, 1);
+      this.BtnForward.Name = "BtnForward";
+      this.BtnForward.Size = new System.Drawing.Size(94, 29);
+      this.BtnForward.TabIndex = 3;
+      this.BtnForward.Text = "전달(Fw)";
+      this.BtnForward.UseVisualStyleBackColor = true;
+      // 
+      // BtnReply
+      // 
+      this.BtnReply.Location = new System.Drawing.Point(453, 0);
+      this.BtnReply.Name = "BtnReply";
+      this.BtnReply.Size = new System.Drawing.Size(94, 29);
+      this.BtnReply.TabIndex = 4;
+      this.BtnReply.Text = "회신(Re)";
+      this.BtnReply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+      this.BtnReply.UseVisualStyleBackColor = true;
+      // 
+      // BtnReplyAll
+      // 
+      this.BtnReplyAll.Location = new System.Drawing.Point(585, 0);
+      this.BtnReplyAll.Name = "BtnReplyAll";
+      this.BtnReplyAll.Size = new System.Drawing.Size(94, 29);
+      this.BtnReplyAll.TabIndex = 5;
+      this.BtnReplyAll.Text = "전체 회신";
+      this.BtnReplyAll.UseVisualStyleBackColor = true;
       // 
       // FrmMailWriter
       // 
@@ -256,7 +290,7 @@ namespace WinFormEmailWriter
       this.Controls.Add(this.LblTemplateGroup);
       this.Controls.Add(this.LblManager);
       this.Controls.Add(this.LblCompany);
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "FrmMailWriter";
       this.Text = "메일 작성 프로그램";
       this.Load += new System.EventHandler(this.FrmMailWriter_Load);
@@ -287,6 +321,9 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.FlowLayoutPanel FLPAttachedFiles;
     private System.Windows.Forms.Button BtnRemoveAllFiles;
     private System.Windows.Forms.Button BtnWriteMail;
+    private System.Windows.Forms.Button BtnForward;
+    private System.Windows.Forms.Button BtnReply;
+    private System.Windows.Forms.Button BtnReplyAll;
   }
 }
 
