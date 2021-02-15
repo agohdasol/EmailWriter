@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.Office.Interop.Outlook;
+﻿using Microsoft.Office.Interop.Outlook;
+using System.Collections.Generic;
 
 namespace DataProcessor
 {
@@ -14,22 +14,34 @@ namespace DataProcessor
     {
       return string.Join("; ", emailList);
     }
+    private static string JoinEmails(string emails, List<string> emailList)
+    {
+      if (string.IsNullOrEmpty(emails))
+      {
+        return EmailListToString(emailList);
+      }
+      //기존 메일 수신자 등이 있는 경우(Fw, Re) 포함해서 반환
+      return string.Join("; ", emails, EmailListToString(emailList));
+    }
     private void Inject(MailItem mailItem)
     {
-      mailItem.To = EmailListToString(this.Receivers);
-      mailItem.CC = EmailListToString(this.CC);
+      mailItem.To = JoinEmails(mailItem.To, this.Receivers);
+      mailItem.CC = JoinEmails(mailItem.CC, this.CC);
       mailItem.Subject = this.Subject;
       mailItem.Body = this.Body;
-      try
+      if (AttachedFilePathes != null)
       {
-        foreach (var file in AttachedFilePathes)
+        try
         {
-          mailItem.Attachments.Add(file);
+          foreach (var file in AttachedFilePathes)
+          {
+            mailItem.Attachments.Add(file);
+          }
         }
-      }
-      catch (System.IO.FileNotFoundException)
-      {
+        catch (System.IO.FileNotFoundException)
+        {
 
+        }
       }
     }
     public void Create()
@@ -42,7 +54,7 @@ namespace DataProcessor
     public void Forward()
     {
       Application app = new Application();
-      Selection mySelections = app.ActiveExplorer().Selection;
+      CboSelection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;
@@ -54,7 +66,7 @@ namespace DataProcessor
     public void ReplyAll()
     {
       Application app = new Application();
-      Selection mySelections = app.ActiveExplorer().Selection;
+      CboSelection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;
@@ -66,7 +78,7 @@ namespace DataProcessor
     public void Reply()
     {
       Application app = new Application();
-      Selection mySelections = app.ActiveExplorer().Selection;
+      CboSelection mySelections = app.ActiveExplorer().Selection;
       foreach (var mySelection in mySelections)  //선택된 다수의 메일에 대해 반복
       {
         MailItem mailItem = (MailItem)mySelection;

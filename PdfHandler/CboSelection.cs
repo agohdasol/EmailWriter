@@ -3,7 +3,7 @@ using System.Data;
 
 namespace DataProcessor
 {
-  public class Template
+  public class CboSelection
   {
     public DataRow Company { get; set; }
     public DataRow Department { get; set; }

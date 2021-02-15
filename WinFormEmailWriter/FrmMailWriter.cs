@@ -15,7 +15,7 @@ namespace WinFormEmailWriter
     public static List<string> Template { get; set; }
     public static List<string> TemplateGroup { get; set; }
     public static Dictionary<Button, string> AttachedFiles { get; set; } = new Dictionary<Button, string>();
-    public static Template SelectedTemplate { get; set; }
+    public static CboSelection Selected { get; set; }
     public FrmMailWriter()
     {
       InitializeComponent();
@@ -153,7 +153,7 @@ namespace WinFormEmailWriter
     {
       ComboBoxInitializer(CboTemplate);
       SQLite db = new SQLite("emailwriterdb.sqlite");
-      SelectedTemplate = new Template()
+      Selected = new CboSelection()
       {
         Company = db.GetDataRow("Company", "Name", CboCompany.Text),
         Department = db.GetDataRow("Department", "Name", CboDepartment.Text),
@@ -167,7 +167,7 @@ namespace WinFormEmailWriter
     private void BtnCreateMail_Click(object sender, EventArgs e)
     {
       SQLite db = new SQLite("emailwriterdb.sqlite");
-      var templateFilePath = SelectedTemplate.GetTemplateName();
+      var templateFilePath = Selected.GetTemplateName();
       string strHtml = HtmlParser.HtmlToString(templateFilePath);
       Replacer replacers = new Replacer()
       {
