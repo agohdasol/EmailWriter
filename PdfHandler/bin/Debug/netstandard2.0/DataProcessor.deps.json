@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "DataProcessor/1.0.0": {
         "dependencies": {
+          "Microsoft.Office.Interop.Outlook": "15.0.4797.1003",
           "NETStandard.Library": "2.0.3",
           "System.Data.SQLite": "1.0.113.7",
           "System.Text.Encoding.CodePages": "5.0.0",
@@ -38,6 +39,14 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.Office.Interop.Outlook/15.0.4797.1003": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Outlook.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4797.1003"
+          }
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -108,6 +117,13 @@
       "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Office.Interop.Outlook/15.0.4797.1003": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7tvZ8vtSemSxJxrarL/i3oYuha4ElXxvrjFfuWL0s5vmKVDHXjY72+Ed6S4xCPH+qDGEZYd49ObdGT7PC8BegQ==",
+      "path": "microsoft.office.interop.outlook/15.0.4797.1003",
+      "hashPath": "microsoft.office.interop.outlook.15.0.4797.1003.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",

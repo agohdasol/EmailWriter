@@ -49,14 +49,33 @@ namespace DataProcessor
           }
         }
       }
-      foreach(var replacer in ReplacerList)
+
+      return result;
+    }
+    public Dictionary<string, string> GetReplacerDict(CboSelection selected)
+    {
+      Dictionary<string, string> result = new Dictionary<string, string>();
+      foreach (var replacer in ReplacerList)
       {
         if (replacer.Location == "DB")
         {
           if (!result.ContainsKey(replacer.Name))
           {
-            result.Add(replacer.Name, "asd");
-            //Cbo 내의 내용을 어떻게 가져올건지?
+            switch (replacer.Finder1)
+            {
+              //이메일, 전화번호 등 반영할것
+              case "Company":
+                result.Add(replacer.Name, selected.Company["Name"].ToString());
+                break;
+              case "Department":
+                result.Add(replacer.Name, selected.Department["Name"].ToString());
+                break;
+              case "Manager":
+                result.Add(replacer.Name, selected.Manager["Name"].ToString());
+                break;
+              default:
+                break;
+            }
           }
         }
       }

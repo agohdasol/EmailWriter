@@ -167,8 +167,8 @@ namespace WinFormEmailWriter
     private void BtnCreateMail_Click(object sender, EventArgs e)
     {
       SQLite db = new SQLite("emailwriterdb.sqlite");
-      var templateFilePath = Selected.GetTemplateName();
-      string strHtml = HtmlParser.HtmlToString(templateFilePath);
+      var templateFileName = Selected.GetTemplateFileName();
+      string strHtml = HtmlParser.HtmlToString(templateFileName);
       Replacer replacers = new Replacer()
       {
         ReplacerList = db.GetSelectedReplacerList(strHtml)
@@ -176,8 +176,18 @@ namespace WinFormEmailWriter
       var dict = new Dictionary<string, string>();
       if (AttachedFiles != null)  //여기서 널체크하면 파일없을때는?
       {
-        dict = replacers.GetReplacerDict(GetAttachedFilesList());  //여기에 SelectedTemplate 주입
+        dict = replacers.GetReplacerDict(GetAttachedFilesList());
       }
+      var dictFromCbos = replacers.GetReplacerDict(Selected);
+
+      foreach(var dic in dictFromCbos)
+      {
+        if (!dict.ContainsKey(dic.Key))
+        {
+          dict.Add(dic.Key, dic.Value);
+        }
+      }
+
       strHtml = AutoFill.ReplaceAll(strHtml, dict);
       PreviewWebBrowser.DocumentText = strHtml;
     }

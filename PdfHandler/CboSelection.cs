@@ -10,7 +10,7 @@ namespace DataProcessor
     public DataRow Manager { get; set; }
     public DataRow TemplateGroup { get; set; }
     public DataRow TemplateName { get; set; }
-    public string GetTemplateName()
+    public string GetTemplateFileName()
     {
       return TemplateName["FileName"].ToString();
     }

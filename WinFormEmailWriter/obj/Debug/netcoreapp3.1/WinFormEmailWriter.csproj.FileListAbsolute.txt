@@ -74,3 +74,4 @@ D:\HonorsCoding\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEm
 D:\HonorsCoding\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.dll
 D:\HonorsCoding\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.pdb
 D:\HonorsCoding\EmailWriter\WinFormEmailWriter\obj\Debug\netcoreapp3.1\WinFormEmailWriter.genruntimeconfig.cache
+D:\HonorsCoding\EmailWriter\WinFormEmailWriter\bin\Debug\netcoreapp3.1\Microsoft.Office.Interop.Outlook.dll
