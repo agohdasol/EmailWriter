@@ -7,6 +7,7 @@ namespace DataProcessor
 {
   public class SQLite
   {
+    // ToDo : DB 초기화로직 구현
     private string DBPath { get; set; }
     public List<string> GetColumn(string tableName, string columnName)
     {

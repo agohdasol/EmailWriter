@@ -2,8 +2,8 @@
 using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.Data;
+using System.Data.SQLite;
 
 namespace Tester
 {
@@ -71,7 +71,9 @@ namespace Tester
         "(Id integer primary key autoincrement, Name varchar(50), Location varchar(20), Finder1 varchar(50), Finder2 varchar(50), Finder3 varchar(50))";
       ExecuteQueryString(conn, sql);
 
-      sql = "insert into Company (Name, Email) values ('아너스특허법률사무소', 'info@honorspat.com'), ('아이피텍코리아', 'info@iptk.co.kr')";
+      sql = "insert into Company (Name, Email, Address) values " +
+        "('아너스특허법률사무소', 'info@honorspat.com', '부산광역시 연제구 중앙대로 1255 함조빌딩 7층'), " +
+        "('아이피텍코리아', 'info@iptk.co.kr', '부산광역시 연제구 중앙대로 1255 함조빌딩 7층')";
       ExecuteQueryString(conn, sql);
 
       sql = "insert into Department (Name) values ('관리팀'), ('특허팀')";
@@ -109,8 +111,10 @@ namespace Tester
       sql = "insert into Replacer (Name, Location, Finder1, Finder2, Finder3) values " +
         "('##출원번호##', 'PDF', '의견제출통지서', '출 원 번 호', null), ('##출원인##', 'PDF', '의견제출통지서', '출 원 인 성 명', '(특'), " +
         "('##명칭##', 'PDF', '의견제출통지서', '발 명 의 명 칭', null), ('##발명자##', 'PDF', '의견제출통지서', '발 명 자 성 명', null), " +
-        "('##마감일##', 'PDF', '의견제출통지서', '제출기일: ', null), ('##담당자##', 'DB', 'Manager', null, null), " +
-        "('##회사명##', 'DB', 'Company', null, null)";
+        "('##마감일##', 'PDF', '의견제출통지서', '제출기일: ', null), ('##담당자##', 'DB', 'Manager', 'Name', null), " +
+        "('##회사명##', 'DB', 'Company', 'Name', null), " +
+        "('##회사주소##', 'DB', 'Company', 'Address', null), " +
+        "('##회사대표메일##', 'DB', 'Company', 'Email', null)";
       ExecuteQueryString(conn, sql);
 
       //sql = "select * from Manager m " +
@@ -184,7 +188,7 @@ namespace Tester
       FileAttacher fileAttacher = new FileAttacher(filePathes);
       var files = fileAttacher.GetReplacingFileList(replacer);
 
-      foreach(var file in files)
+      foreach (var file in files)
       {
         Console.WriteLine(file);
       }
@@ -198,8 +202,8 @@ namespace Tester
       dt.Rows.Add("김치", 11231223);
       dt.Rows.Add("와오앙", 12123);
 
-      var asd=dt.Rows;
-      foreach(DataRow r in asd)
+      var asd = dt.Rows;
+      foreach (DataRow r in asd)
       {
         Console.WriteLine(r["Num"]);
       }
