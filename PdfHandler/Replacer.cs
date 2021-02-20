@@ -7,7 +7,7 @@ namespace DataProcessor
     public string Name { get; set; }
     public string Location { get; set; }
     public string Finder1 { get; set; } //In PDF, It means keyword at FileName. In DB, It means TableName. 키워드, 스타트스트링, 엔드스트링으로 변경할것
-    public string Finder2 { get; set; } //In PDF, It means start word to find. In DB, It means target table culumn name.
+    public string Finder2 { get; set; } //In PDF, It means start word to find. In DB, It means target table column name.
     public string Finder3 { get; set; } //In PDF, It means end word to find.
 
     public List<Replacer> ReplacerList { get; set; }

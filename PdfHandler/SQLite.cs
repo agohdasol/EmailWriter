@@ -7,8 +7,71 @@ namespace DataProcessor
 {
   public class SQLite
   {
-    // ToDo : DB 초기화로직 구현
     private string DBPath { get; set; }
+    private static void ExecuteQueryString(SQLiteConnection conn, string sql)
+    {
+      var cmd = new SQLiteCommand(sql, conn);
+      cmd.ExecuteNonQuery();
+    }
+    public void Initialize()
+    {
+      SQLiteConnection.CreateFile("emailwriterdb.sqlite");
+      var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
+      conn.Open();
+
+      string sql = "create table Company " +
+        "(Id integer primary key autoincrement, Name varchar(25), Email varchar(50), Address varchar(100), Phone varchar(20))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table Department " +
+        "(Id integer primary key autoincrement, Name varchar(25))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table TemplateGroup " +
+        "(Id integer primary key autoincrement, Name varchar(25), Department_Id integer," +
+        "foreign key(Department_Id) references Department(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table Manager " +
+        "(Id integer primary key autoincrement, Name varchar(25), Email varchar(50), Phone varchar(20), Rank varchar(20))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table Template (Id integer primary key autoincrement, Name varchar(25), FileName varchar(255))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table FileName (Id integer primary key autoincrement, Name varchar(25))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table CompanyManager (Id integer primary key autoincrement, Company_Id integer, Manager_Id integer," +
+        "foreign key(Company_Id) references Company(Id), foreign key(Manager_Id) references Manager(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table CompanyDepartment (Id integer primary key autoincrement, Company_Id integer, Department_Id integer," +
+        "foreign key(Company_Id) references Company(Id), foreign key(Department_Id) references Department(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table DepartmentManager (Id integer primary key autoincrement, Department_Id integer, Manager_Id integer," +
+        "foreign key(Department_Id) references Department(Id), foreign key(Manager_Id) references Manager(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table DepartmentTemplateGroup (Id integer primary key autoincrement, Department_Id integer, TemplateGroup_Id integer," +
+        "foreign key(Department_Id) references Department(Id), foreign key(TemplateGroup_Id) references TemplateGroup(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table TemplateGroupTemplate (Id integer primary key autoincrement, TemplateGroup_Id integer, Template_Id integer," +
+        "foreign key(TemplateGroup_Id) references TemplateGroup(Id), foreign key(Template_Id) references Template(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table TemplateFileName (Id integer primary key autoincrement, Template_Id integer, FileName_Id integer," +
+        "foreign key(Template_Id) references Template(Id), foreign key(FileName_Id) references FileName(Id))";
+      ExecuteQueryString(conn, sql);
+
+      sql = "create table Replacer " +
+        "(Id integer primary key autoincrement, Name varchar(50), Location varchar(20), Finder1 varchar(50), Finder2 varchar(50), Finder3 varchar(50))";
+      ExecuteQueryString(conn, sql);
+
+      conn.Close();
+    }
     public List<string> GetColumn(string tableName, string columnName)
     {
       var result = new List<string>();
