@@ -44,7 +44,7 @@ namespace DataProcessor
         }
       }
     }
-    public void Create()
+    public void Write()
     {
       Application app = new Application();
       MailItem mailItem = (MailItem)app.CreateItem(OlItemType.olMailItem);

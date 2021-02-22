@@ -16,6 +16,7 @@ namespace WinFormEmailWriter
     public static List<string> TemplateGroup { get; set; }
     public static Dictionary<Button, string> AttachedFiles { get; set; } = new Dictionary<Button, string>();
     public static CboSelection Selected { get; set; }
+    public string MailContent { get; set; }
     public FrmMailWriter()
     {
       InitializeComponent();
@@ -190,11 +191,14 @@ namespace WinFormEmailWriter
 
       strHtml = AutoFill.ReplaceAll(strHtml, dict);
       PreviewWebBrowser.DocumentText = strHtml;
+      MailContent = strHtml;
     }
     private void BtnWriteMail_Click(object sender, EventArgs e)
     {
-
+      //이메일 개체 생성/초기화 후 Write 메서드 실행
+      //동일한 방식으로 Re 등 구현
     }
-
+    //DB 편집 폼 - 초기화, 위치지정, 데이터추가
+    //템플릿 편집 폼 - 폴더지정, 불러오기, 편집, 추가
   }
 }
