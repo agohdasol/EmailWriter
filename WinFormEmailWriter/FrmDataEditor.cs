@@ -61,10 +61,52 @@ namespace WinFormEmailWriter
       Update(dataGridViewFileName, "FileName");
       Update(dataGridViewReplacer, "Replacer");
     }
-
-    private void BtnDeleteRow_Click(object sender, System.EventArgs e)
+    private void DeleteSelectedRow(DataGridView dataGridView)
     {
-      dataGridViewCompany.Rows.Remove(dataGridViewCompany.SelectedRows[0]);
+      if (dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected) > 0)
+      {
+        try
+        {
+          dataGridView.Rows.Remove(dataGridView.SelectedRows[0]);
+        }
+        catch
+        {
+
+        }
+      }
+    }
+    private void BtnDeleteCompanyRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewCompany);
+    }
+    private void BtnDeleteDepartmentRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewDepartment);
+    }
+
+    private void BtnDeleteManagerRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewManager);
+    }
+
+    private void BtnDeleteTemplateGroupRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewTemplateGroup);
+    }
+
+    private void BtnDeleteTemplateRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewTemplate);
+    }
+
+    private void BtnDeleteReplacerRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewReplacer);
+    }
+
+    private void BtnDeleteFileNameRow_Click(object sender, System.EventArgs e)
+    {
+      DeleteSelectedRow(dataGridViewFileName);
     }
   }
 }
