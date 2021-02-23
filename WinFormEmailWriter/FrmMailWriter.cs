@@ -181,7 +181,7 @@ namespace WinFormEmailWriter
       }
       var dictFromCbos = replacers.GetReplacerDict(Selected);
 
-      foreach(var dic in dictFromCbos)
+      foreach (var dic in dictFromCbos)
       {
         if (!dict.ContainsKey(dic.Key))
         {
@@ -195,6 +195,15 @@ namespace WinFormEmailWriter
     }
     private void BtnWriteMail_Click(object sender, EventArgs e)
     {
+      var email = new Email()
+      {
+        //Receivers = new List<string>() { "asd" },
+        //CC = new List<string>() { "asd" },
+        Subject = "제목",
+        Body = "내용",
+        AttachedFilePathes = GetAttachedFilesList(),
+      };
+      email.Write();
       //이메일 개체 생성/초기화 후 Write 메서드 실행
       //동일한 방식으로 Re 등 구현
     }

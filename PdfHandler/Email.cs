@@ -12,7 +12,15 @@ namespace DataProcessor
     public List<string> AttachedFilePathes { get; set; }
     private static string EmailListToString(List<string> emailList)
     {
-      return string.Join("; ", emailList);
+      if (emailList != null)
+      {
+        return string.Join("; ", emailList);
+      }
+      else
+      {
+        return "";
+      }
+      
     }
     private static string JoinEmails(string emails, List<string> emailList)
     {

@@ -29,8 +29,6 @@ namespace WinFormEmailWriter
     /// </summary>
     private void InitializeComponent()
     {
-      this.LblCompany = new System.Windows.Forms.Label();
-      this.CboCompany = new System.Windows.Forms.ComboBox();
       this.LblManager = new System.Windows.Forms.Label();
       this.CboManager = new System.Windows.Forms.ComboBox();
       this.LblTemplate = new System.Windows.Forms.Label();
@@ -51,32 +49,16 @@ namespace WinFormEmailWriter
       this.LblTemplateGroup = new System.Windows.Forms.Label();
       this.CboTemplateGroup = new System.Windows.Forms.ComboBox();
       this.BtnDataEditor = new System.Windows.Forms.Button();
+      this.CboCompany = new System.Windows.Forms.ComboBox();
+      this.LblCompany = new System.Windows.Forms.Label();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
       // 
-      // LblCompany
-      // 
-      this.LblCompany.AutoSize = true;
-      this.LblCompany.Location = new System.Drawing.Point(12, 9);
-      this.LblCompany.Name = "LblCompany";
-      this.LblCompany.Size = new System.Drawing.Size(43, 15);
-      this.LblCompany.TabIndex = 0;
-      this.LblCompany.Text = "회사명";
-      // 
-      // CboCompany
-      // 
-      this.CboCompany.FormattingEnabled = true;
-      this.CboCompany.Location = new System.Drawing.Point(61, 6);
-      this.CboCompany.Name = "CboCompany";
-      this.CboCompany.Size = new System.Drawing.Size(121, 23);
-      this.CboCompany.TabIndex = 1;
-      this.CboCompany.SelectedIndexChanged += new System.EventHandler(this.CboCompany_SelectedIndexChanged);
-      // 
       // LblManager
       // 
       this.LblManager.AutoSize = true;
-      this.LblManager.Location = new System.Drawing.Point(415, 9);
+      this.LblManager.Location = new System.Drawing.Point(364, 9);
       this.LblManager.Name = "LblManager";
       this.LblManager.Size = new System.Drawing.Size(55, 15);
       this.LblManager.TabIndex = 0;
@@ -85,7 +67,7 @@ namespace WinFormEmailWriter
       // CboManager
       // 
       this.CboManager.FormattingEnabled = true;
-      this.CboManager.Location = new System.Drawing.Point(476, 6);
+      this.CboManager.Location = new System.Drawing.Point(425, 6);
       this.CboManager.Name = "CboManager";
       this.CboManager.Size = new System.Drawing.Size(121, 23);
       this.CboManager.TabIndex = 1;
@@ -94,7 +76,7 @@ namespace WinFormEmailWriter
       // LblTemplate
       // 
       this.LblTemplate.AutoSize = true;
-      this.LblTemplate.Location = new System.Drawing.Point(891, 9);
+      this.LblTemplate.Location = new System.Drawing.Point(728, 9);
       this.LblTemplate.Name = "LblTemplate";
       this.LblTemplate.Size = new System.Drawing.Size(31, 15);
       this.LblTemplate.TabIndex = 0;
@@ -103,7 +85,7 @@ namespace WinFormEmailWriter
       // CboTemplate
       // 
       this.CboTemplate.FormattingEnabled = true;
-      this.CboTemplate.Location = new System.Drawing.Point(928, 6);
+      this.CboTemplate.Location = new System.Drawing.Point(765, 6);
       this.CboTemplate.Name = "CboTemplate";
       this.CboTemplate.Size = new System.Drawing.Size(121, 23);
       this.CboTemplate.TabIndex = 1;
@@ -112,7 +94,7 @@ namespace WinFormEmailWriter
       // LblDepartment
       // 
       this.LblDepartment.AutoSize = true;
-      this.LblDepartment.Location = new System.Drawing.Point(205, 9);
+      this.LblDepartment.Location = new System.Drawing.Point(188, 9);
       this.LblDepartment.Name = "LblDepartment";
       this.LblDepartment.Size = new System.Drawing.Size(43, 15);
       this.LblDepartment.TabIndex = 0;
@@ -121,7 +103,7 @@ namespace WinFormEmailWriter
       // CboDepartment
       // 
       this.CboDepartment.FormattingEnabled = true;
-      this.CboDepartment.Location = new System.Drawing.Point(266, 6);
+      this.CboDepartment.Location = new System.Drawing.Point(237, 6);
       this.CboDepartment.Name = "CboDepartment";
       this.CboDepartment.Size = new System.Drawing.Size(121, 23);
       this.CboDepartment.TabIndex = 1;
@@ -252,7 +234,7 @@ namespace WinFormEmailWriter
       // LblTemplateGroup
       // 
       this.LblTemplateGroup.AutoSize = true;
-      this.LblTemplateGroup.Location = new System.Drawing.Point(648, 9);
+      this.LblTemplateGroup.Location = new System.Drawing.Point(552, 9);
       this.LblTemplateGroup.Name = "LblTemplateGroup";
       this.LblTemplateGroup.Size = new System.Drawing.Size(43, 15);
       this.LblTemplateGroup.TabIndex = 0;
@@ -261,7 +243,7 @@ namespace WinFormEmailWriter
       // CboTemplateGroup
       // 
       this.CboTemplateGroup.FormattingEnabled = true;
-      this.CboTemplateGroup.Location = new System.Drawing.Point(709, 6);
+      this.CboTemplateGroup.Location = new System.Drawing.Point(601, 6);
       this.CboTemplateGroup.Name = "CboTemplateGroup";
       this.CboTemplateGroup.Size = new System.Drawing.Size(121, 23);
       this.CboTemplateGroup.TabIndex = 1;
@@ -269,13 +251,31 @@ namespace WinFormEmailWriter
       // 
       // BtnDataEditor
       // 
-      this.BtnDataEditor.Location = new System.Drawing.Point(1085, 9);
+      this.BtnDataEditor.Location = new System.Drawing.Point(949, 6);
       this.BtnDataEditor.Name = "BtnDataEditor";
       this.BtnDataEditor.Size = new System.Drawing.Size(75, 23);
       this.BtnDataEditor.TabIndex = 4;
       this.BtnDataEditor.Text = "DB 편집";
       this.BtnDataEditor.UseVisualStyleBackColor = true;
       this.BtnDataEditor.Click += new System.EventHandler(this.BtnDataEditor_Click);
+      // 
+      // CboCompany
+      // 
+      this.CboCompany.FormattingEnabled = true;
+      this.CboCompany.Location = new System.Drawing.Point(61, 6);
+      this.CboCompany.Name = "CboCompany";
+      this.CboCompany.Size = new System.Drawing.Size(121, 23);
+      this.CboCompany.TabIndex = 1;
+      this.CboCompany.SelectedIndexChanged += new System.EventHandler(this.CboCompany_SelectedIndexChanged);
+      // 
+      // LblCompany
+      // 
+      this.LblCompany.AutoSize = true;
+      this.LblCompany.Location = new System.Drawing.Point(12, 9);
+      this.LblCompany.Name = "LblCompany";
+      this.LblCompany.Size = new System.Drawing.Size(43, 15);
+      this.LblCompany.TabIndex = 0;
+      this.LblCompany.Text = "회사명";
       // 
       // FrmMailWriter
       // 
@@ -306,9 +306,6 @@ namespace WinFormEmailWriter
     }
 
     #endregion
-
-    private System.Windows.Forms.Label LblCompany;
-    private System.Windows.Forms.ComboBox CboCompany;
     private System.Windows.Forms.Label LblManager;
     private System.Windows.Forms.ComboBox CboManager;
     private System.Windows.Forms.Label LblTemplate;
@@ -329,6 +326,8 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.Button BtnReply;
     private System.Windows.Forms.Button BtnReplyAll;
     private System.Windows.Forms.Button BtnDataEditor;
+    private System.Windows.Forms.ComboBox CboCompany;
+    private System.Windows.Forms.Label LblCompany;
   }
 }
 

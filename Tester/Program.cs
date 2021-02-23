@@ -210,7 +210,7 @@ namespace Tester
     }
     static void Main(string[] args)
     {
-      MakeSampleDB();
+      OutlookFoward();
     }
   }
 }
