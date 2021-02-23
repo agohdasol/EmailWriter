@@ -1344,19 +1344,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\agohd\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HonorsCoding\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj",
+      "projectUniqueName": "C:\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj",
       "projectName": "WinFormEmailWriter",
-      "projectPath": "D:\\HonorsCoding\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj",
-      "packagesPath": "C:\\Users\\agohd\\.nuget\\packages\\",
-      "outputPath": "D:\\HonorsCoding\\EmailWriter\\WinFormEmailWriter\\obj\\",
+      "projectPath": "C:\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\EmailWriter\\WinFormEmailWriter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\agohd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1370,8 +1370,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\HonorsCoding\\EmailWriter\\PdfHandler\\DataProcessor.csproj": {
-              "projectPath": "D:\\HonorsCoding\\EmailWriter\\PdfHandler\\DataProcessor.csproj"
+            "C:\\EmailWriter\\PdfHandler\\DataProcessor.csproj": {
+              "projectPath": "C:\\EmailWriter\\PdfHandler\\DataProcessor.csproj"
             }
           }
         }
@@ -1403,7 +1403,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   },

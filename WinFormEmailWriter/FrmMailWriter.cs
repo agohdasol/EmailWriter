@@ -198,6 +198,11 @@ namespace WinFormEmailWriter
       //이메일 개체 생성/초기화 후 Write 메서드 실행
       //동일한 방식으로 Re 등 구현
     }
+    private void BtnDataEditor_Click(object sender, EventArgs e)
+    {
+      var frmDataEditor = new FrmDataEditor();
+      frmDataEditor.Show(this);
+    }
     //DB 편집 폼 - 초기화, 위치지정, 데이터추가
     //템플릿 편집 폼 - 폴더지정, 불러오기, 편집, 추가
   }
