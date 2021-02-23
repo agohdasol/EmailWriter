@@ -15,22 +15,32 @@ namespace WinFormEmailWriter
     //{
     //  InitializeComponent();
     //}
-    public FrmDataEditor()
+    private void InitializeDataGrid(DataGridView dataGridView, string tableName)
     {
-      InitializeComponent();
       var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
       conn.Open();
       SQLiteCommand cmd = new SQLiteCommand();
       cmd.Connection = conn;
-      cmd.CommandText = "Select * From Company";
+      cmd.CommandText = $"Select * From {tableName}";
       using (SQLiteDataReader dr = cmd.ExecuteReader())
       {
         DataTable dt = new DataTable();
         dt.Load(dr);
-        dr.Close();
-        conn.Close();
         dataGridView.DataSource = dt;
+        dr.Close();
       }
+      conn.Close();
+    }
+    public FrmDataEditor()
+    {
+      InitializeComponent();
+      InitializeDataGrid(dataGridViewCompany, "Company");
+      InitializeDataGrid(dataGridViewDepartment, "Department");
+      InitializeDataGrid(dataGridViewManager, "Manager");
+      InitializeDataGrid(dataGridViewTemplateGroup, "TemplateGroup");
+      InitializeDataGrid(dataGridViewTemplate, "Template");
+      InitializeDataGrid(dataGridViewFileName, "FileName");
+      InitializeDataGrid(dataGridViewReplacer, "Replacer");
     }
   }
 }
