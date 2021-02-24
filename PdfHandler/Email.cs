@@ -36,7 +36,7 @@ namespace DataProcessor
       mailItem.To = JoinEmails(mailItem.To, this.Receivers);
       mailItem.CC = JoinEmails(mailItem.CC, this.CC);
       mailItem.Subject = this.Subject;
-      mailItem.Body = this.Body;
+      mailItem.HTMLBody = this.Body;
       if (AttachedFilePathes != null)
       {
         try

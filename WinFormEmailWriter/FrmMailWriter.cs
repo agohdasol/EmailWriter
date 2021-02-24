@@ -200,7 +200,7 @@ namespace WinFormEmailWriter
         //Receivers = new List<string>() { "asd" },
         //CC = new List<string>() { "asd" },
         Subject = "제목",
-        Body = "내용",
+        Body = MailContent,
         AttachedFilePathes = GetAttachedFilesList(),
       };
       email.Write();
