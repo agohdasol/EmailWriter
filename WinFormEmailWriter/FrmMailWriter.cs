@@ -162,6 +162,11 @@ namespace WinFormEmailWriter
         TemplateGroup = db.GetDataRow("TemplateGroup", "Name", CboTemplateGroup.Text),
         TemplateName = db.GetDataRow("Template", "Name", CboTemplate.Text),
       };
+      BtnCreateMail.Enabled = true;
+      BtnWriteMail.Enabled = true;
+      BtnReply.Enabled = true;
+      BtnReplyAll.Enabled = true;
+      BtnForward.Enabled = true;
     }
     #endregion
 
