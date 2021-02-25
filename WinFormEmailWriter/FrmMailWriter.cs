@@ -25,6 +25,25 @@ namespace WinFormEmailWriter
     {
       return new List<string>(AttachedFiles.Values);
     }
+    private void BtnStateChanger()
+    {
+      if (CboTemplate.SelectedItem == null)
+      {
+        BtnCreateMail.Enabled = false;
+        BtnWriteMail.Enabled = false;
+        BtnReply.Enabled = false;
+        BtnReplyAll.Enabled = false;
+        BtnForward.Enabled = false;
+      }
+      else
+      {
+        BtnCreateMail.Enabled = true;
+        BtnWriteMail.Enabled = true;
+        BtnReply.Enabled = true;
+        BtnReplyAll.Enabled = true;
+        BtnForward.Enabled = true;
+      }
+    }
     private void FrmMailWriter_Load(object sender, EventArgs e)
     {
       GetDataForComboBox();
@@ -133,21 +152,25 @@ namespace WinFormEmailWriter
     private void CboCompany_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboCompany);
+      BtnStateChanger();
     }
 
     private void CboDepartment_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboDepartment);
+      BtnStateChanger();
     }
 
     private void CboManager_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboManager);
+      BtnStateChanger();
     }
 
     private void CboTemplateGroup_SelectedIndexChanged(object sender, EventArgs e)
     {
       ComboBoxInitializer(CboTemplateGroup);
+      BtnStateChanger();
     }
 
     private void CboTemplate_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,11 +185,7 @@ namespace WinFormEmailWriter
         TemplateGroup = db.GetDataRow("TemplateGroup", "Name", CboTemplateGroup.Text),
         TemplateName = db.GetDataRow("Template", "Name", CboTemplate.Text),
       };
-      BtnCreateMail.Enabled = true;
-      BtnWriteMail.Enabled = true;
-      BtnReply.Enabled = true;
-      BtnReplyAll.Enabled = true;
-      BtnForward.Enabled = true;
+      BtnStateChanger();
     }
     #endregion
 
