@@ -20,7 +20,7 @@ namespace WinFormEmailWriter
 
     private async void BtnSave_Click(object sender, EventArgs e)
     {
-      var html = await this.templateEditorWebView.ExecuteScriptAsync("document.body.outerHTML");
+      var html = await this.templateEditorWebView.ExecuteScriptAsync("$('#summernote').summernote('code');");
       html = Regex.Unescape(html);
       html = html.Remove(0, 1);
       html = html.Remove(html.Length - 1, 1);
