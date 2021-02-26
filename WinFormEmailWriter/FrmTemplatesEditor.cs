@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,14 @@ namespace WinFormEmailWriter
     public FrmTemplatesEditor()
     {
       InitializeComponent();
+    }
+
+    private async void BtnSave_Click(object sender, EventArgs e)
+    {
+      var html = await this.templateEditorWebView.ExecuteScriptAsync("document.body.outerHTML");
+      html = Regex.Unescape(html);
+      html = html.Remove(0, 1);
+      html = html.Remove(html.Length - 1, 1);
     }
   }
 }

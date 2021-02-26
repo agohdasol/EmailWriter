@@ -54,6 +54,7 @@ namespace WinFormEmailWriter
       this.BtnSave.TabIndex = 2;
       this.BtnSave.Text = "템플릿 저장하기";
       this.BtnSave.UseVisualStyleBackColor = true;
+      this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
       // 
       // templateEditorWebView
       // 
@@ -64,8 +65,7 @@ namespace WinFormEmailWriter
       this.templateEditorWebView.Location = new System.Drawing.Point(13, 13);
       this.templateEditorWebView.Name = "templateEditorWebView";
       this.templateEditorWebView.Size = new System.Drawing.Size(775, 402);
-      this.templateEditorWebView.Source = new System.Uri(@"C:\EmailWriter\WinFormEmailWriter\summernote\htmleditor.html", System.UriKind.Absolute);
-      //Need Edge Beta Channel
+      this.templateEditorWebView.Source = new System.Uri("C:\\EmailWriter\\WinFormEmailWriter\\summernote\\htmleditor.html", System.UriKind.Absolute);
       this.templateEditorWebView.TabIndex = 3;
       this.templateEditorWebView.ZoomFactor = 1D;
       // 
