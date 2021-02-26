@@ -51,6 +51,7 @@ namespace WinFormEmailWriter
       this.BtnDataEditor = new System.Windows.Forms.Button();
       this.CboCompany = new System.Windows.Forms.ComboBox();
       this.LblCompany = new System.Windows.Forms.Label();
+      this.BtnHTMLEditor = new System.Windows.Forms.Button();
       this.GrpAttachedFile.SuspendLayout();
       this.GrpPreview.SuspendLayout();
       this.SuspendLayout();
@@ -272,7 +273,7 @@ namespace WinFormEmailWriter
       this.BtnDataEditor.Location = new System.Drawing.Point(949, 5);
       this.BtnDataEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDataEditor.Name = "BtnDataEditor";
-      this.BtnDataEditor.Size = new System.Drawing.Size(75, 18);
+      this.BtnDataEditor.Size = new System.Drawing.Size(75, 23);
       this.BtnDataEditor.TabIndex = 4;
       this.BtnDataEditor.Text = "DB 편집";
       this.BtnDataEditor.UseVisualStyleBackColor = true;
@@ -297,11 +298,22 @@ namespace WinFormEmailWriter
       this.LblCompany.TabIndex = 0;
       this.LblCompany.Text = "회사명";
       // 
+      // BtnHTMLEditor
+      // 
+      this.BtnHTMLEditor.Location = new System.Drawing.Point(1050, 5);
+      this.BtnHTMLEditor.Name = "BtnHTMLEditor";
+      this.BtnHTMLEditor.Size = new System.Drawing.Size(90, 23);
+      this.BtnHTMLEditor.TabIndex = 5;
+      this.BtnHTMLEditor.Text = "템플릿편집기";
+      this.BtnHTMLEditor.UseVisualStyleBackColor = true;
+      this.BtnHTMLEditor.Click += new System.EventHandler(this.BtnHTMLEditor_Click);
+      // 
       // FrmMailWriter
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1205, 360);
+      this.Controls.Add(this.BtnHTMLEditor);
       this.Controls.Add(this.BtnDataEditor);
       this.Controls.Add(this.GrpPreview);
       this.Controls.Add(this.GrpAttachedFile);
@@ -349,6 +361,7 @@ namespace WinFormEmailWriter
     private System.Windows.Forms.Button BtnDataEditor;
     private System.Windows.Forms.ComboBox CboCompany;
     private System.Windows.Forms.Label LblCompany;
+    private System.Windows.Forms.Button BtnHTMLEditor;
   }
 }
 

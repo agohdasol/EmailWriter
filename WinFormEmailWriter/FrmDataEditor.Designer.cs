@@ -74,18 +74,20 @@ namespace WinFormEmailWriter
       // 
       // BtnInitialize
       // 
-      this.BtnInitialize.Location = new System.Drawing.Point(13, 13);
+      this.BtnInitialize.Location = new System.Drawing.Point(13, 10);
+      this.BtnInitialize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnInitialize.Name = "BtnInitialize";
-      this.BtnInitialize.Size = new System.Drawing.Size(75, 23);
+      this.BtnInitialize.Size = new System.Drawing.Size(75, 18);
       this.BtnInitialize.TabIndex = 0;
       this.BtnInitialize.Text = "DB 초기화";
       this.BtnInitialize.UseVisualStyleBackColor = true;
       // 
       // BtnChangePath
       // 
-      this.BtnChangePath.Location = new System.Drawing.Point(110, 13);
+      this.BtnChangePath.Location = new System.Drawing.Point(110, 10);
+      this.BtnChangePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnChangePath.Name = "BtnChangePath";
-      this.BtnChangePath.Size = new System.Drawing.Size(94, 23);
+      this.BtnChangePath.Size = new System.Drawing.Size(94, 18);
       this.BtnChangePath.TabIndex = 1;
       this.BtnChangePath.Text = "DB 경로 변경";
       this.BtnChangePath.UseVisualStyleBackColor = true;
@@ -93,9 +95,9 @@ namespace WinFormEmailWriter
       // LblPath
       // 
       this.LblPath.AutoSize = true;
-      this.LblPath.Location = new System.Drawing.Point(221, 13);
+      this.LblPath.Location = new System.Drawing.Point(221, 10);
       this.LblPath.Name = "LblPath";
-      this.LblPath.Size = new System.Drawing.Size(51, 15);
+      this.LblPath.Size = new System.Drawing.Size(49, 12);
       this.LblPath.TabIndex = 2;
       this.LblPath.Text = "DB 경로";
       // 
@@ -111,29 +113,32 @@ namespace WinFormEmailWriter
       this.TabTable.Controls.Add(this.tabPage5);
       this.TabTable.Controls.Add(this.tabPage6);
       this.TabTable.Controls.Add(this.tabPage7);
-      this.TabTable.Location = new System.Drawing.Point(0, 42);
+      this.TabTable.Location = new System.Drawing.Point(0, 34);
+      this.TabTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.TabTable.Name = "TabTable";
       this.TabTable.SelectedIndex = 0;
-      this.TabTable.Size = new System.Drawing.Size(800, 408);
+      this.TabTable.Size = new System.Drawing.Size(800, 326);
       this.TabTable.TabIndex = 4;
       // 
       // tabPage1
       // 
       this.tabPage1.Controls.Add(this.BtnDeleteCompanyRow);
       this.tabPage1.Controls.Add(this.dataGridViewCompany);
-      this.tabPage1.Location = new System.Drawing.Point(4, 24);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage1.Name = "tabPage1";
-      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(792, 380);
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPage1.Size = new System.Drawing.Size(792, 300);
       this.tabPage1.TabIndex = 0;
       this.tabPage1.Text = "회사";
       this.tabPage1.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteCompanyRow
       // 
-      this.BtnDeleteCompanyRow.Location = new System.Drawing.Point(9, 3);
+      this.BtnDeleteCompanyRow.Location = new System.Drawing.Point(9, 2);
+      this.BtnDeleteCompanyRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteCompanyRow.Name = "BtnDeleteCompanyRow";
-      this.BtnDeleteCompanyRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteCompanyRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteCompanyRow.TabIndex = 1;
       this.BtnDeleteCompanyRow.Text = "행 삭제";
       this.BtnDeleteCompanyRow.UseVisualStyleBackColor = true;
@@ -145,30 +150,33 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewCompany.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewCompany.Location = new System.Drawing.Point(3, 30);
+      this.dataGridViewCompany.Location = new System.Drawing.Point(3, 24);
+      this.dataGridViewCompany.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewCompany.Name = "dataGridViewCompany";
       this.dataGridViewCompany.RowTemplate.Height = 25;
       this.dataGridViewCompany.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.dataGridViewCompany.Size = new System.Drawing.Size(786, 347);
+      this.dataGridViewCompany.Size = new System.Drawing.Size(786, 278);
       this.dataGridViewCompany.TabIndex = 0;
       // 
       // tabPage2
       // 
       this.tabPage2.Controls.Add(this.BtnDeleteDepartmentRow);
       this.tabPage2.Controls.Add(this.dataGridViewDepartment);
-      this.tabPage2.Location = new System.Drawing.Point(4, 24);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage2.Name = "tabPage2";
-      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(792, 380);
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPage2.Size = new System.Drawing.Size(792, 300);
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "부서";
       this.tabPage2.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteDepartmentRow
       // 
-      this.BtnDeleteDepartmentRow.Location = new System.Drawing.Point(9, 5);
+      this.BtnDeleteDepartmentRow.Location = new System.Drawing.Point(9, 4);
+      this.BtnDeleteDepartmentRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteDepartmentRow.Name = "BtnDeleteDepartmentRow";
-      this.BtnDeleteDepartmentRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteDepartmentRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteDepartmentRow.TabIndex = 2;
       this.BtnDeleteDepartmentRow.Text = "행 삭제";
       this.BtnDeleteDepartmentRow.UseVisualStyleBackColor = true;
@@ -180,28 +188,31 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewDepartment.Location = new System.Drawing.Point(3, 34);
+      this.dataGridViewDepartment.Location = new System.Drawing.Point(3, 27);
+      this.dataGridViewDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewDepartment.Name = "dataGridViewDepartment";
       this.dataGridViewDepartment.RowTemplate.Height = 25;
-      this.dataGridViewDepartment.Size = new System.Drawing.Size(786, 340);
+      this.dataGridViewDepartment.Size = new System.Drawing.Size(786, 272);
       this.dataGridViewDepartment.TabIndex = 0;
       // 
       // tabPage3
       // 
       this.tabPage3.Controls.Add(this.BtnDeleteManagerRow);
       this.tabPage3.Controls.Add(this.dataGridViewManager);
-      this.tabPage3.Location = new System.Drawing.Point(4, 24);
+      this.tabPage3.Location = new System.Drawing.Point(4, 22);
+      this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage3.Name = "tabPage3";
-      this.tabPage3.Size = new System.Drawing.Size(792, 380);
+      this.tabPage3.Size = new System.Drawing.Size(792, 300);
       this.tabPage3.TabIndex = 2;
       this.tabPage3.Text = "담당자";
       this.tabPage3.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteManagerRow
       // 
-      this.BtnDeleteManagerRow.Location = new System.Drawing.Point(9, 6);
+      this.BtnDeleteManagerRow.Location = new System.Drawing.Point(9, 5);
+      this.BtnDeleteManagerRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteManagerRow.Name = "BtnDeleteManagerRow";
-      this.BtnDeleteManagerRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteManagerRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteManagerRow.TabIndex = 2;
       this.BtnDeleteManagerRow.Text = "행 삭제";
       this.BtnDeleteManagerRow.UseVisualStyleBackColor = true;
@@ -213,28 +224,31 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewManager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewManager.Location = new System.Drawing.Point(-8, 35);
+      this.dataGridViewManager.Location = new System.Drawing.Point(-8, 28);
+      this.dataGridViewManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewManager.Name = "dataGridViewManager";
       this.dataGridViewManager.RowTemplate.Height = 25;
-      this.dataGridViewManager.Size = new System.Drawing.Size(792, 345);
+      this.dataGridViewManager.Size = new System.Drawing.Size(792, 276);
       this.dataGridViewManager.TabIndex = 0;
       // 
       // tabPage4
       // 
       this.tabPage4.Controls.Add(this.BtnDeleteTemplateGroupRow);
       this.tabPage4.Controls.Add(this.dataGridViewTemplateGroup);
-      this.tabPage4.Location = new System.Drawing.Point(4, 24);
+      this.tabPage4.Location = new System.Drawing.Point(4, 22);
+      this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage4.Name = "tabPage4";
-      this.tabPage4.Size = new System.Drawing.Size(792, 380);
+      this.tabPage4.Size = new System.Drawing.Size(792, 300);
       this.tabPage4.TabIndex = 3;
       this.tabPage4.Text = "템플릿그룹";
       this.tabPage4.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteTemplateGroupRow
       // 
-      this.BtnDeleteTemplateGroupRow.Location = new System.Drawing.Point(9, 3);
+      this.BtnDeleteTemplateGroupRow.Location = new System.Drawing.Point(9, 2);
+      this.BtnDeleteTemplateGroupRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteTemplateGroupRow.Name = "BtnDeleteTemplateGroupRow";
-      this.BtnDeleteTemplateGroupRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteTemplateGroupRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteTemplateGroupRow.TabIndex = 2;
       this.BtnDeleteTemplateGroupRow.Text = "행 삭제";
       this.BtnDeleteTemplateGroupRow.UseVisualStyleBackColor = true;
@@ -246,28 +260,31 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewTemplateGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewTemplateGroup.Location = new System.Drawing.Point(0, 30);
+      this.dataGridViewTemplateGroup.Location = new System.Drawing.Point(0, 24);
+      this.dataGridViewTemplateGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewTemplateGroup.Name = "dataGridViewTemplateGroup";
       this.dataGridViewTemplateGroup.RowTemplate.Height = 25;
-      this.dataGridViewTemplateGroup.Size = new System.Drawing.Size(792, 350);
+      this.dataGridViewTemplateGroup.Size = new System.Drawing.Size(792, 280);
       this.dataGridViewTemplateGroup.TabIndex = 0;
       // 
       // tabPage5
       // 
       this.tabPage5.Controls.Add(this.BtnDeleteTemplateRow);
       this.tabPage5.Controls.Add(this.dataGridViewTemplate);
-      this.tabPage5.Location = new System.Drawing.Point(4, 24);
+      this.tabPage5.Location = new System.Drawing.Point(4, 22);
+      this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage5.Name = "tabPage5";
-      this.tabPage5.Size = new System.Drawing.Size(792, 380);
+      this.tabPage5.Size = new System.Drawing.Size(792, 300);
       this.tabPage5.TabIndex = 4;
       this.tabPage5.Text = "템플릿";
       this.tabPage5.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteTemplateRow
       // 
-      this.BtnDeleteTemplateRow.Location = new System.Drawing.Point(3, 7);
+      this.BtnDeleteTemplateRow.Location = new System.Drawing.Point(3, 6);
+      this.BtnDeleteTemplateRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteTemplateRow.Name = "BtnDeleteTemplateRow";
-      this.BtnDeleteTemplateRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteTemplateRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteTemplateRow.TabIndex = 2;
       this.BtnDeleteTemplateRow.Text = "행 삭제";
       this.BtnDeleteTemplateRow.UseVisualStyleBackColor = true;
@@ -279,28 +296,31 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewTemplate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewTemplate.Location = new System.Drawing.Point(0, 36);
+      this.dataGridViewTemplate.Location = new System.Drawing.Point(0, 29);
+      this.dataGridViewTemplate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewTemplate.Name = "dataGridViewTemplate";
       this.dataGridViewTemplate.RowTemplate.Height = 25;
-      this.dataGridViewTemplate.Size = new System.Drawing.Size(792, 344);
+      this.dataGridViewTemplate.Size = new System.Drawing.Size(792, 275);
       this.dataGridViewTemplate.TabIndex = 0;
       // 
       // tabPage6
       // 
       this.tabPage6.Controls.Add(this.BtnDeleteReplacerRow);
       this.tabPage6.Controls.Add(this.dataGridViewReplacer);
-      this.tabPage6.Location = new System.Drawing.Point(4, 24);
+      this.tabPage6.Location = new System.Drawing.Point(4, 22);
+      this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage6.Name = "tabPage6";
-      this.tabPage6.Size = new System.Drawing.Size(792, 380);
+      this.tabPage6.Size = new System.Drawing.Size(792, 300);
       this.tabPage6.TabIndex = 5;
       this.tabPage6.Text = "대체텍스트";
       this.tabPage6.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteReplacerRow
       // 
-      this.BtnDeleteReplacerRow.Location = new System.Drawing.Point(9, 5);
+      this.BtnDeleteReplacerRow.Location = new System.Drawing.Point(9, 4);
+      this.BtnDeleteReplacerRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteReplacerRow.Name = "BtnDeleteReplacerRow";
-      this.BtnDeleteReplacerRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteReplacerRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteReplacerRow.TabIndex = 2;
       this.BtnDeleteReplacerRow.Text = "행 삭제";
       this.BtnDeleteReplacerRow.UseVisualStyleBackColor = true;
@@ -312,28 +332,31 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewReplacer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewReplacer.Location = new System.Drawing.Point(0, 34);
+      this.dataGridViewReplacer.Location = new System.Drawing.Point(0, 27);
+      this.dataGridViewReplacer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewReplacer.Name = "dataGridViewReplacer";
       this.dataGridViewReplacer.RowTemplate.Height = 25;
-      this.dataGridViewReplacer.Size = new System.Drawing.Size(792, 346);
+      this.dataGridViewReplacer.Size = new System.Drawing.Size(792, 277);
       this.dataGridViewReplacer.TabIndex = 0;
       // 
       // tabPage7
       // 
       this.tabPage7.Controls.Add(this.BtnDeleteFileNameRow);
       this.tabPage7.Controls.Add(this.dataGridViewFileName);
-      this.tabPage7.Location = new System.Drawing.Point(4, 24);
+      this.tabPage7.Location = new System.Drawing.Point(4, 22);
+      this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPage7.Name = "tabPage7";
-      this.tabPage7.Size = new System.Drawing.Size(792, 380);
+      this.tabPage7.Size = new System.Drawing.Size(792, 300);
       this.tabPage7.TabIndex = 6;
       this.tabPage7.Text = "첨부파일명";
       this.tabPage7.UseVisualStyleBackColor = true;
       // 
       // BtnDeleteFileNameRow
       // 
-      this.BtnDeleteFileNameRow.Location = new System.Drawing.Point(9, 3);
+      this.BtnDeleteFileNameRow.Location = new System.Drawing.Point(9, 2);
+      this.BtnDeleteFileNameRow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnDeleteFileNameRow.Name = "BtnDeleteFileNameRow";
-      this.BtnDeleteFileNameRow.Size = new System.Drawing.Size(75, 23);
+      this.BtnDeleteFileNameRow.Size = new System.Drawing.Size(75, 18);
       this.BtnDeleteFileNameRow.TabIndex = 2;
       this.BtnDeleteFileNameRow.Text = "행 삭제";
       this.BtnDeleteFileNameRow.UseVisualStyleBackColor = true;
@@ -345,17 +368,19 @@ namespace WinFormEmailWriter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridViewFileName.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewFileName.Location = new System.Drawing.Point(0, 32);
+      this.dataGridViewFileName.Location = new System.Drawing.Point(0, 26);
+      this.dataGridViewFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.dataGridViewFileName.Name = "dataGridViewFileName";
       this.dataGridViewFileName.RowTemplate.Height = 25;
-      this.dataGridViewFileName.Size = new System.Drawing.Size(792, 348);
+      this.dataGridViewFileName.Size = new System.Drawing.Size(792, 278);
       this.dataGridViewFileName.TabIndex = 0;
       // 
       // BtnSave
       // 
-      this.BtnSave.Location = new System.Drawing.Point(331, 13);
+      this.BtnSave.Location = new System.Drawing.Point(331, 10);
+      this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.BtnSave.Name = "BtnSave";
-      this.BtnSave.Size = new System.Drawing.Size(106, 23);
+      this.BtnSave.Size = new System.Drawing.Size(106, 18);
       this.BtnSave.TabIndex = 5;
       this.BtnSave.Text = "변경사항 저장";
       this.BtnSave.UseVisualStyleBackColor = true;
@@ -363,16 +388,17 @@ namespace WinFormEmailWriter
       // 
       // FrmDataEditor
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(800, 360);
       this.Controls.Add(this.BtnSave);
       this.Controls.Add(this.TabTable);
       this.Controls.Add(this.LblPath);
       this.Controls.Add(this.BtnChangePath);
       this.Controls.Add(this.BtnInitialize);
+      this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.Name = "FrmDataEditor";
-      this.Text = "FrmDataEditor";
+      this.Text = "데이터베이스 편집기";
       this.TabTable.ResumeLayout(false);
       this.tabPage1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompany)).EndInit();

@@ -24,3 +24,11 @@ C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\DataProcessor.pdb
 C:\EmailWriter\WinFormEmailWriter\obj\Debug\net472\WinFormEmailWriter.csproj.CopyComplete
 C:\EmailWriter\WinFormEmailWriter\obj\Debug\net472\WinFormEmailWriter.exe
 C:\EmailWriter\WinFormEmailWriter\obj\Debug\net472\WinFormEmailWriter.pdb
+C:\EmailWriter\WinFormEmailWriter\obj\Debug\net472\WinFormEmailWriter.FrmTemplatesEditor.resources
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\x86\WebView2Loader.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\x64\WebView2Loader.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\arm64\WebView2Loader.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\Microsoft.Web.WebView2.Core.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\Microsoft.Web.WebView2.WinForms.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\Microsoft.Web.WebView2.Wpf.dll
+C:\EmailWriter\WinFormEmailWriter\bin\Debug\net472\WebView2Loader.dll

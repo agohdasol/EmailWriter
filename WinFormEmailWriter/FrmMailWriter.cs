@@ -236,6 +236,12 @@ namespace WinFormEmailWriter
       var frmDataEditor = new FrmDataEditor();
       frmDataEditor.Show(this);
     }
+
+    private void BtnHTMLEditor_Click(object sender, EventArgs e)
+    {
+      var frmTemplatesEditor = new FrmTemplatesEditor();
+      frmTemplatesEditor.Show(this);
+    }
     //DB 편집 폼 - 초기화, 위치지정, 데이터추가
     //템플릿 편집 폼 - 폴더지정, 불러오기, 편집, 추가
   }

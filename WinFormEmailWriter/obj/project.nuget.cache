@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bU5b8n2R3l+jhr/8gKPvRwZeMX82SZGrCOIv9dn/qmYy1ztOlGX9vanKX23tROsZAJeq+R3U5Df6W2hBwn5hHg==",
+  "dgSpecHash": "1PA7EIUqKEn6SoWtDYKKUvo0zgZosle/WT3cUQ0Kizx4a1q7RUsmaCB8HIaWVTqrAalFu5/HcEXNBlItB/1fUg==",
   "success": true,
   "projectFilePath": "C:\\EmailWriter\\WinFormEmailWriter\\WinFormEmailWriter.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\user\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\itextsharp\\5.5.13.2\\itextsharp.5.5.13.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.office.interop.outlook\\15.0.4797.1003\\microsoft.office.interop.outlook.15.0.4797.1003.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.web.webview2\\1.0.705.50\\microsoft.web.webview2.1.0.705.50.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\stub.system.data.sqlite.core.netframework\\1.0.113.3\\stub.system.data.sqlite.core.netframework.1.0.113.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.data.sqlite\\1.0.113.7\\system.data.sqlite.1.0.113.7.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.7\\system.data.sqlite.core.1.0.113.7.nupkg.sha512",

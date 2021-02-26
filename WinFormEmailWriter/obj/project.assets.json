@@ -50,6 +50,36 @@
           "lib/net20/Microsoft.Office.Interop.Outlook.dll": {}
         }
       },
+      "Microsoft.Web.WebView2/1.0.705.50": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.Web.WebView2.Core.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.WinForms.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Web.WebView2.Core.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.WinForms.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.Wpf.dll": {}
+        },
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-arm"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.113.3": {
         "type": "package",
         "compile": {
@@ -195,6 +225,25 @@
         },
         "runtime": {
           "lib/net20/Microsoft.Office.Interop.Outlook.dll": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.705.50": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.Web.WebView2.Core.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.WinForms.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Web.WebView2.Core.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.WinForms.dll": {},
+          "lib/net45/Microsoft.Web.WebView2.Wpf.dll": {}
+        },
+        "native": {
+          "runtimes/win-x86/native/WebView2Loader.dll": {}
+        },
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
         }
       },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.113.3": {
@@ -381,6 +430,54 @@
         "lib/net20/Microsoft.Office.Interop.Outlook.dll",
         "microsoft.office.interop.outlook.15.0.4797.1003.nupkg.sha512",
         "microsoft.office.interop.outlook.nuspec"
+      ]
+    },
+    "Microsoft.Web.WebView2/1.0.705.50": {
+      "sha512": "YjqCZ+WqVNKgPX2j5p3onk+sM3fCidljozelDHApaC4r6/sVohFTyna4m2A3Z0ynCsMoR1xOI4VffW+JLSWEXw==",
+      "type": "package",
+      "path": "microsoft.web.webview2/1.0.705.50",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "WebView2.idl",
+        "WebView2.tlb",
+        "build/Microsoft.Web.WebView2.targets",
+        "build/arm64/WebView2Loader.dll",
+        "build/native/Microsoft.Web.WebView2.targets",
+        "build/native/arm64/WebView2Guid.lib",
+        "build/native/arm64/WebView2Loader.dll",
+        "build/native/arm64/WebView2Loader.dll.lib",
+        "build/native/arm64/WebView2LoaderStatic.lib",
+        "build/native/include/WebView2.h",
+        "build/native/include/WebView2EnvironmentOptions.h",
+        "build/native/x64/WebView2Guid.lib",
+        "build/native/x64/WebView2Loader.dll",
+        "build/native/x64/WebView2Loader.dll.lib",
+        "build/native/x64/WebView2LoaderStatic.lib",
+        "build/native/x86/WebView2Guid.lib",
+        "build/native/x86/WebView2Loader.dll",
+        "build/native/x86/WebView2Loader.dll.lib",
+        "build/native/x86/WebView2LoaderStatic.lib",
+        "build/x64/WebView2Loader.dll",
+        "build/x86/WebView2Loader.dll",
+        "lib/net45/Microsoft.Web.WebView2.Core.dll",
+        "lib/net45/Microsoft.Web.WebView2.Core.xml",
+        "lib/net45/Microsoft.Web.WebView2.WinForms.dll",
+        "lib/net45/Microsoft.Web.WebView2.WinForms.xml",
+        "lib/net45/Microsoft.Web.WebView2.Wpf.dll",
+        "lib/net45/Microsoft.Web.WebView2.Wpf.xml",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.xml",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.xml",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll",
+        "lib/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.xml",
+        "microsoft.web.webview2.1.0.705.50.nupkg.sha512",
+        "microsoft.web.webview2.nuspec",
+        "runtimes/win-arm/native/WebView2Loader.dll",
+        "runtimes/win-x64/native/WebView2Loader.dll",
+        "runtimes/win-x86/native/WebView2Loader.dll"
       ]
     },
     "Stub.System.Data.SQLite.Core.NetFramework/1.0.113.3": {
@@ -596,7 +693,8 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "DataProcessor >= 1.0.0",
-      "Microsoft.Office.Interop.Outlook >= 15.0.4797.1003"
+      "Microsoft.Office.Interop.Outlook >= 15.0.4797.1003",
+      "Microsoft.Web.WebView2 >= 1.0.705.50"
     ]
   },
   "packageFolders": {
@@ -645,6 +743,10 @@
           "Microsoft.Office.Interop.Outlook": {
             "target": "Package",
             "version": "[15.0.4797.1003, )"
+          },
+          "Microsoft.Web.WebView2": {
+            "target": "Package",
+            "version": "[1.0.705.50, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"

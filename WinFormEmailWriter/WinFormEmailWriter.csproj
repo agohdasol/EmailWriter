@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1003" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.705.50" />
   </ItemGroup>
 
   <ItemGroup>

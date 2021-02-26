@@ -7,5 +7,8 @@
     <Compile Update="FrmMailWriter.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmTemplatesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

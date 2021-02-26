@@ -120,6 +120,10 @@
             "Microsoft.Office.Interop.Outlook": {
               "target": "Package",
               "version": "[15.0.4797.1003, )"
+            },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.705.50, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
