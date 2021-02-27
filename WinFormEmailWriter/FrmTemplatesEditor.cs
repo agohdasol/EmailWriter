@@ -42,7 +42,7 @@ namespace WinFormEmailWriter
     private async void BtnLoad_Click(object sender, EventArgs e)
     {
       OpenFileDialog openFileDialog = new OpenFileDialog();
-      //openFileDialog.Filter = "HTML|(*.html;*.htm)";
+      openFileDialog.Filter = "HTML|*.html;*.htm";
       openFileDialog.Title = "Open an HTML File";
       openFileDialog.ShowDialog();
       if (openFileDialog.FileName != "")
