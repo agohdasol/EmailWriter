@@ -52,9 +52,7 @@ namespace WinFormEmailWriter
           using (StreamReader sr = new StreamReader(fs, Encoding.Default))
           {
             string html = sr.ReadToEnd();
-            await this.templateEditorWebView.ExecuteScriptAsync($"var html = '{html}'");
-            await this.templateEditorWebView.ExecuteScriptAsync($"$('#summernote').summernote('pasteHTML', html);");
-            await this.templateEditorWebView.ExecuteScriptAsync($"$('#summernote').summernote('pasteHTML', 'asd');");
+            await this.templateEditorWebView.ExecuteScriptAsync($"$('#summernote').summernote('pasteHTML', `{html}`);");
           }
         }
       }
