@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormEmailWriter
@@ -41,6 +35,27 @@ namespace WinFormEmailWriter
             w.Write(html);
           }
           fs.Close();
+        }
+      }
+    }
+
+    private async void BtnLoad_Click(object sender, EventArgs e)
+    {
+      OpenFileDialog openFileDialog = new OpenFileDialog();
+      //openFileDialog.Filter = "HTML|(*.html;*.htm)";
+      openFileDialog.Title = "Open an HTML File";
+      openFileDialog.ShowDialog();
+      if (openFileDialog.FileName != "")
+      {
+        using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open))
+        {
+          using (StreamReader sr = new StreamReader(fs, Encoding.Default))
+          {
+            string html = sr.ReadToEnd();
+            await this.templateEditorWebView.ExecuteScriptAsync($"var html = '{html}'");
+            await this.templateEditorWebView.ExecuteScriptAsync($"$('#summernote').summernote('pasteHTML', html);");
+            await this.templateEditorWebView.ExecuteScriptAsync($"$('#summernote').summernote('pasteHTML', 'asd');");
+          }
         }
       }
     }
