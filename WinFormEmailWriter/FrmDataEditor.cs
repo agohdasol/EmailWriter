@@ -6,10 +6,6 @@ namespace WinFormEmailWriter
 {
   public partial class FrmDataEditor : Form
   {
-    //public FrmDataEditor()
-    //{
-    //  InitializeComponent();
-    //}
     private void InitializeDataGrid(DataGridView dataGridView, string tableName)
     {
       var conn = new SQLiteConnection("Data Source=emailwriterdb.sqlite;");
@@ -25,6 +21,9 @@ namespace WinFormEmailWriter
         dr.Close();
       }
       conn.Close();
+      //select tg.Id, tg.Name as '템플릿 그룹명', d.Name as '부서명' from TemplateGroup tg 
+      //left join DepartmentTemplateGroup dtg on dtg.TemplateGroup_Id = tg.Id 
+      //left join Department d on d.Id = dtg.Department_Id;
     }
     private void Update(DataGridView dataGridView, string tableName)
     {
